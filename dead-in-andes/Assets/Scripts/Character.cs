@@ -12,7 +12,6 @@ public class Character : MonoBehaviour
     [SerializeField] private int _fatigueMeter = 0;
     [SerializeField] private int _sicknessMeter = 0;
 
-
     public void NextDayChanges()
     {
         if (_alive)
@@ -21,7 +20,7 @@ public class Character : MonoBehaviour
             _fatigueMeter += 1;
             _sicknessMeter += 1;
 
-            if (_hungerMeter <= 10)
+            if (_hungerMeter >= 100)
             {
                 _alive = false;
             }

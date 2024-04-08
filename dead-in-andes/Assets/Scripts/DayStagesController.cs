@@ -7,16 +7,25 @@ public class DayStagesController : MonoBehaviour
 {
     [SerializeField] private DayStage _dayStage = DayStage.Morning;
     [SerializeField] private int _dayCounter = 0;
-    [SerializeField] private List<Character> _characters_list;
+    [SerializeField] private Character[] _characters_list;
+    [SerializeField] private Site[] allSites;
     
     void ChangeDayStage()
     {
         switch (_dayStage)
         {
             case DayStage.Morning:
+                foreach (var site in allSites)
+                {
+                    site.generateItem();
+                }
                 _dayStage = DayStage.Afternoon;
                 break;
             case DayStage.Afternoon:
+                foreach (var site in allSites)
+                {
+                    site.generateItem();
+                }
                 _dayStage = DayStage.Evening;
                 break;
             case DayStage.Evening:
@@ -39,7 +48,9 @@ public class DayStagesController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("siemano bycz");
+        Debug.Log("Start");
+        allSites = Object.FindObjectsOfType<Site>();
+        _characters_list = Object.FindObjectsOfType<Character>();
     }
 
     // Update is called once per frame
