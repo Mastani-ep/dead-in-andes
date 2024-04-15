@@ -60,7 +60,7 @@ public class DayStagesController : MonoBehaviour
         {
             ChangeDayStage();
             Debug.Log(_dayStage);
-            Debug.Log(_dayCounter);
+            Debug.Log("Day" + _dayCounter);
         }
     }
 }

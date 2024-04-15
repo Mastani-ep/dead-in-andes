@@ -39,12 +39,12 @@ public class DragDropCharacter : MonoBehaviour, IPointerDownHandler, IBeginDragH
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("OnPointerDown");
+        //Debug.Log("OnPointerDown");
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("OnBeginDrag");
+        //Debug.Log("OnBeginDrag");
         canvasGroup.alpha = .6f;
         canvasGroup.blocksRaycasts = false;
         isBeingDragged = true;
@@ -52,7 +52,7 @@ public class DragDropCharacter : MonoBehaviour, IPointerDownHandler, IBeginDragH
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("OnEndDrag");
+        //Debug.Log("OnEndDrag");
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
         isBeingDragged = false;
@@ -61,12 +61,12 @@ public class DragDropCharacter : MonoBehaviour, IPointerDownHandler, IBeginDragH
     public void OnDrag(PointerEventData eventData)
     {
         _rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
-        Debug.Log("OnDrag");
+        //Debug.Log("OnDrag");
     }
 
     public void OnDrop(PointerEventData eventData)
     {
-        Debug.Log("OnDrop");
+        //Debug.Log("OnDrop");
     }
 
     public void changeCurrentSite(Site site)
