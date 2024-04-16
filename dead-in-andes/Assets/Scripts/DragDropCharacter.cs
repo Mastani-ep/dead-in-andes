@@ -13,6 +13,7 @@ public class DragDropCharacter : MonoBehaviour, IPointerDownHandler, IBeginDragH
     public bool isBeingDragged = false;
     [Header("Site")] 
     [SerializeField] private Site currentSite;
+    [SerializeField] private Transform background;
     
     private void Awake()
     {
@@ -45,14 +46,17 @@ public class DragDropCharacter : MonoBehaviour, IPointerDownHandler, IBeginDragH
     public void OnBeginDrag(PointerEventData eventData)
     {
         //Debug.Log("OnBeginDrag");
+        transform.SetParent(canvas.GetComponent<Transform>());
         canvasGroup.alpha = .6f;
         canvasGroup.blocksRaycasts = false;
         isBeingDragged = true;
+        
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         //Debug.Log("OnEndDrag");
+        transform.SetParent(background);
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
         isBeingDragged = false;
