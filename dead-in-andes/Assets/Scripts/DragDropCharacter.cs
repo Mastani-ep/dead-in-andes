@@ -4,28 +4,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DragDropCharacter : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IDropHandler
+public class DragDropCharacter : MonoBehaviour
 {
 
     [SerializeField] private Canvas canvas;
-    private RectTransform _rectTransform;
     private CanvasGroup canvasGroup;
     public bool isBeingDragged = false;
+    public SpriteRenderer spriteRenderer;
     [Header("Site")] 
-    [SerializeField] private Site currentSite;
-    [SerializeField] private Transform background;
-    
+    public Site currentSite;
+    public Site availableSite;
     private void Awake()
     {
-        _rectTransform = GetComponent<RectTransform>();
-        canvasGroup = GetComponent<CanvasGroup>();
     }
 
     private void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         if (currentSite)
         {
-            GetComponent<RectTransform>().anchoredPosition = currentSite.GetComponent<RectTransform>().anchoredPosition;
+            transform.position = currentSite.transform.position;
+            availableSite = currentSite;
             currentSite.ChangeCurrentCharacter(GetComponent<Character>());
         }
     }
@@ -34,43 +33,32 @@ public class DragDropCharacter : MonoBehaviour, IPointerDownHandler, IBeginDragH
     {
         if (!isBeingDragged)
         {
-            GetComponent<RectTransform>().anchoredPosition = currentSite.GetComponent<RectTransform>().anchoredPosition;
+            transform.position = currentSite.transform.position;
+        }
+        else
+        {
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            transform.position = mousePosition;
         }
     }
 
-    public void OnPointerDown(PointerEventData eventData)
+    public void OnMouseDown()
     {
-        //Debug.Log("OnPointerDown");
-    }
-
-    public void OnBeginDrag(PointerEventData eventData)
-    {
-        //Debug.Log("OnBeginDrag");
-        transform.SetParent(canvas.GetComponent<Transform>());
-        canvasGroup.alpha = .6f;
-        canvasGroup.blocksRaycasts = false;
+        // offset = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        changeColorAlpha(0.6f);
         isBeingDragged = true;
         
     }
 
-    public void OnEndDrag(PointerEventData eventData)
+    public void OnMouseUp()
     {
-        //Debug.Log("OnEndDrag");
-        transform.SetParent(background);
-        canvasGroup.alpha = 1f;
-        canvasGroup.blocksRaycasts = true;
+        if (availableSite)
+        {
+            changeCurrentSite(availableSite);
+        }
+        changeColorAlpha(1f);
+
         isBeingDragged = false;
-    }
-
-    public void OnDrag(PointerEventData eventData)
-    {
-        _rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
-        //Debug.Log("OnDrag");
-    }
-
-    public void OnDrop(PointerEventData eventData)
-    {
-        //Debug.Log("OnDrop");
     }
 
     public void changeCurrentSite(Site site)
@@ -79,9 +67,11 @@ public class DragDropCharacter : MonoBehaviour, IPointerDownHandler, IBeginDragH
         currentSite = site;
         print("CHANGED SITE::" + currentSite + site.SiteType);
     }
-    
-    public void resetToPreviousSite()
+
+    public void changeColorAlpha(float alpha)
     {
-        GetComponent<RectTransform>().anchoredPosition = currentSite.GetComponent<RectTransform>().anchoredPosition;
+        Color currentColor = spriteRenderer.color;
+        currentColor.a = alpha;
+        spriteRenderer.color = currentColor;
     }
 }

@@ -5,63 +5,56 @@ using UnityEngine.UI;
 
 public class CameraController : MonoBehaviour
 {
-    public float moveSpeed = 1f;
-    public float dragSpeed = 5f;
+    public float moveSpeed = 0.4f;
     public float boundary = 0.1f;
-
-    public RectTransform canvasRect; // Assign Canvas's RectTransform in the Inspector
+    public float buttonTranslation = 25f;
 
     void Start()
     {
-        // Find the Canvas in the scene and get its RectTransform component
-        Canvas canvas = FindObjectOfType<Canvas>();
-        if (canvas != null)
-        {
-            canvasRect = canvas.GetComponent<RectTransform>();
-        }
-        else
-        {
-            Debug.LogError("No Canvas found in the scene.");
-        }
     }
     
     void Update()
     {
-        // Move the canvas horizontally when mouse is close to screen edges
         float mouseX = Input.mousePosition.x;
         float screenWidth = Screen.width;
-        float moveDirection = 0f;
-
-        if (mouseX < screenWidth * boundary)
+        if (Input.GetKeyDown(KeyCode.D))
         {
-            moveDirection = -1f;
-        }
-        else if (mouseX > screenWidth * (1 - boundary))
-        {
-            moveDirection = 1f;
+            translateByKey(1f, buttonTranslation);
+            return;
         }
 
-        canvasRect.Translate(Vector3.right * moveDirection * moveSpeed * Time.deltaTime);
-
-        // Drag and drop functionality
-        if (Input.GetMouseButton(0))
+        // Move left when A key is pressed
+        if (Input.GetKeyDown(KeyCode.A))
         {
-            // Convert mouse position to canvas local position
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRect, Input.mousePosition, null, out Vector2 localPoint);
-
-            // Check if any UI element is being dragged
-            foreach (Transform child in canvasRect)
-            {
-                if (child.gameObject.CompareTag("Draggable"))
-                {
-                    RectTransform rectTransform = child.GetComponent<RectTransform>();
-                    if (RectTransformUtility.RectangleContainsScreenPoint(rectTransform, Input.mousePosition))
-                    {
-                        rectTransform.position = Vector2.Lerp(rectTransform.position, localPoint, dragSpeed * Time.deltaTime);
-                    }
-                }
-            }
+            translateByKey(-1f, buttonTranslation);
+            return;
         }
+
+        float distanceFromCenter = Mathf.Abs(mouseX - screenWidth / 2);
+        
+        if (distanceFromCenter < screenWidth * 0.33)
+        {
+            return;
+        }
+        
+        float direction = mouseX < screenWidth / 2 ? -1f : 1f;
+        Vector3 movement = new Vector3(direction * moveSpeed * Time.deltaTime, 0f, 0f);
+        
+        transform.Translate(movement);
+        
+        Vector3 clampedPosition = transform.position;
+        clampedPosition.x = Mathf.Clamp(clampedPosition.x, -boundary, boundary);
+        transform.position = clampedPosition;
+    }
+
+    public void translateByKey(float direction, float distance)
+    {
+        Vector3 movement = new Vector3(direction * distance, 0f, 0f);
+        transform.Translate(movement);
+        
+        Vector3 clampedPosition = transform.position;
+        clampedPosition.x = Mathf.Clamp(clampedPosition.x, -boundary, boundary);
+        transform.position = clampedPosition;
     }
 }
 

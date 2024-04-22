@@ -1,24 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Site : MonoBehaviour, IDropHandler
+public class Site : MonoBehaviour
 {
     [SerializeField] protected string _site_type;
     [SerializeField] protected Character currentCharacter;
-    
-    public void OnDrop(PointerEventData eventData)
-    {
-        //Debug.Log("OnDrop");
-        if (eventData.pointerDrag != null)
-        {
-            eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition =
-                GetComponent<RectTransform>().anchoredPosition;
-            eventData.pointerDrag.GetComponent<DragDropCharacter>().changeCurrentSite(this);
-            ChangeCurrentCharacter(eventData.pointerDrag.GetComponent<Character>());
-        }
-    }
 
     public string SiteType => _site_type;
     // public string getSiteType()
@@ -34,5 +23,23 @@ public class Site : MonoBehaviour, IDropHandler
     public virtual void generateItem()
     {
         // Debug.Log("This should never happen");
+    }
+
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("Entering " + gameObject.name);
+        if (other.CompareTag("Character"))
+        {
+            other.GetComponent<DragDropCharacter>().availableSite = this;
+        }
+    }
+    public void OnTriggerExit2D(Collider2D other)
+    {
+        Debug.Log("Exiting " + gameObject.name);
+        if (other.CompareTag("Character"))
+        {
+
+            other.GetComponent<DragDropCharacter>().availableSite = null;
+        }
     }
 }
