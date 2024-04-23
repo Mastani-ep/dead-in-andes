@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WoodSite : Site
+public class ObjectGrantingSite : Site
 {
     [SerializeField] private ItemParams generatedItem;
 

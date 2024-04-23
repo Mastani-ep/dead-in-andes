@@ -55,6 +55,7 @@ public class DragDropCharacter : MonoBehaviour
         if (availableSite)
         {
             changeCurrentSite(availableSite);
+            availableSite.ChangeCurrentCharacter(GetComponent<Character>());
         }
         changeColorAlpha(1f);
 

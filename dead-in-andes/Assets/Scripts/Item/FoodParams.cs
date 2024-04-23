@@ -5,4 +5,5 @@ using UnityEngine;
 public class FoodParams : ItemParams
 {
     public int hunger_modifier;
+    public bool is_raw;
 }

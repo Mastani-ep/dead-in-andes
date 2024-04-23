@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6b97fd7e37cd94469be4f5ecd3ffeab, type: 3}
   m_Name: Fruit
   m_EditorClassIdentifier: 
-  name: New Item
+  name: Fruit
   image: {fileID: 0}
   hunger_modifier: 5
+  is_raw: 0
