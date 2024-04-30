@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObjectGrantingSite : Site
 {
-    [SerializeField] private ItemParams generatedItem;
+    [SerializeField] private ItemObject generatedItem;
 
     [SerializeField] private string usedAbility;
 
