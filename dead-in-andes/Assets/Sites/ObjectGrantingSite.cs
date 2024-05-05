@@ -7,14 +7,14 @@ public class ObjectGrantingSite : Site
     [SerializeField] private ItemObject generatedItem;
 
     [SerializeField] private string usedAbility;
-    public InventoryObject inventory;
+    // public InventoryObject inventory;
 
     public override void generateItem()
     {
         if (currentCharacter)
         {
-            inventory.AddItem(generatedItem, 1);
-            Debug.Log("Generated: " + generatedItem.name);
+            InventoryManager.Instance.Add(generatedItem);
+            Debug.Log("Generated: " + generatedItem.itemName);
         }
     }
 }

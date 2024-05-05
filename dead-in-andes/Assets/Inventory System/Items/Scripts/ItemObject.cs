@@ -1,22 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public enum ItemType
-{
-    WhyDoesItAssignItself,
-    Food,
-    UsableItem,
-    Crafting
-}
+using UnityEngine.Serialization;
 
 // [CreateAssetMenu(fileName = "new Item", menuName = "Create Item/Item")]
 public abstract class ItemObject : ScriptableObject
 {
-    public string name = "New Item";
-    // public Sprite image;
-    public GameObject prefab;
-    public ItemType type;
+    [FormerlySerializedAs("name")] public string itemName = "New Item";
+    [FormerlySerializedAs("icon")] public Sprite itemIcon;
     [TextArea(15,20)]
     public string description;
 }

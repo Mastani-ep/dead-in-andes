@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35aaf54ecde17534b9d57155208cec70, type: 3}
   m_Name: Coffee Cup
   m_EditorClassIdentifier: 
-  name: New Item
-  prefab: {fileID: 5899372713623908876, guid: 8a265e33b49acd54eaac7f74f85d0998, type: 3}
-  type: 2
+  itemName: Coffee Cup
+  itemIcon: {fileID: 0}
   description: 
   hungerModifier: 0
   fatigueModifier: 0

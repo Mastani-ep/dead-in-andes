@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6b97fd7e37cd94469be4f5ecd3ffeab, type: 3}
   m_Name: Fish
   m_EditorClassIdentifier: 
-  name: Fish
-  prefab: {fileID: 246037642573505914, guid: ad0486e1bcc2bf54b81f2c3f209958d3, type: 3}
-  type: 1
+  itemName: Fish
+  itemIcon: {fileID: 0}
   description: 
-  hungerModifier: 0
-  isRaw: 0
+  hungerModifier: 10
+  isRaw: 1

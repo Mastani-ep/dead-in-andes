@@ -32,7 +32,7 @@ public class CameraController : MonoBehaviour
 
         float distanceFromCenter = Mathf.Abs(mouseX - screenWidth / 2);
         
-        if (distanceFromCenter < screenWidth * 0.33)
+        if (distanceFromCenter < screenWidth * 0.45)
         {
             return;
         }

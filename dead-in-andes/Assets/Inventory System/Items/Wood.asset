@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f00bc83c7847cd45afcc4d1991af6ab, type: 3}
   m_Name: Wood
   m_EditorClassIdentifier: 
-  name: New Item
-  prefab: {fileID: 6373949405320038553, guid: b1cd0266de1573d44b6778594906ba28, type: 3}
-  type: 3
+  itemName: Wood
+  itemIcon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   description: 
