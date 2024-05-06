@@ -1,0 +1,32 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+// Probably something better for dictionary serialization could be done but IDK
+// It will not show progress properly in Unity Editor
+[Serializable]
+public class RecipeProgress : Dictionary<Recipe, int>
+{
+    [SerializeField] 
+    RecipeProgressItem[] recipeProgressList;
+
+    public Dictionary<Recipe, int> ToDictionary()
+    {
+        Dictionary<Recipe, int> newDict = new Dictionary<Recipe, int>();
+
+        foreach (var item in recipeProgressList)
+        {
+            newDict.Add(item.recipe, item.progress);
+        }
+
+        return newDict;
+    }
+}
+
+[Serializable]
+public class RecipeProgressItem
+{
+    public Recipe recipe;
+    public int progress;
+}

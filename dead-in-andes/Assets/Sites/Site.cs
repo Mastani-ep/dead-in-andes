@@ -1,15 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class Site : MonoBehaviour
 {
-    [SerializeField] protected string _site_type;
+    [SerializeField] protected SiteType _site_type;
     [SerializeField] protected Character currentCharacter;
 
-    public string SiteType => _site_type;
+    public SiteType SiteType => _site_type;
     // public string getSiteType()
     // {
         
