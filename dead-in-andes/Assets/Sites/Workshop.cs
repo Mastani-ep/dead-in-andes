@@ -5,23 +5,30 @@ using UnityEngine;
 
 public class Workshop : Site
 {
-    public RecipeProgress recipeProgress;
-    public Dictionary<Recipe, int> UnlockedRecipes = new Dictionary<Recipe, int>();
+    public List<RecipeProgress> UnlockedRecipes;
+    // public Dictionary<Recipe, int> UnlockedRecipes = new Dictionary<Recipe, int>();
     public InventoryManager inventoryManager;
-    public Recipe currentRecipe;
+    // currentRecipe is the index of current recipe in the list of unlocked recipes
+    public int currentRecipe;
     public Site[] allSites;
     void Start()
     {
         _site_type = SiteType.Workshop;
-        UnlockedRecipes = recipeProgress.ToDictionary();
+        // UnlockedRecipes = recipeProgress.ToDictionary();
         allSites = Object.FindObjectsOfType<Site>(true);
     }
 
-    public bool checkRecipeRequirements(Recipe recipe)
+    public bool checkRecipeRequirements(int recipeIndex)
     {
         // Check if we are starting the recipe (progress equals 0)
         // If not (>0) then we just continue the recipe - requirement met 
-        if (UnlockedRecipes[recipe] == 0)
+        Recipe recipe = UnlockedRecipes[recipeIndex].recipe;
+        if (UnlockedRecipes[recipeIndex].isDone)
+        {
+            return false;
+        }
+        
+        if (UnlockedRecipes[recipeIndex].progress == 0)
         {
             foreach (var item in recipe.requiredItems)
             {
@@ -38,23 +45,31 @@ public class Workshop : Site
                     return false;
                 }
             }
-        }  
-        // IT LACKS REMOVING ITEMS FROM INVENTORY
+            
+            // When above requirements are met, remove required items from inventory
+            foreach (var item in recipe.requiredItems)
+            {
+                inventoryManager.Remove(item.requiredItem, item.requiredAmount);
+            }
+        }
         return true;
     }
 
     public override void generateItem()
     {
-        if (currentCharacter && currentRecipe)
+        if (currentCharacter && currentRecipe != -1)
         {
+            Recipe recipe = UnlockedRecipes[currentRecipe].recipe;
             // It is important to add some modificator for default progress later based on i.e. character stats
             if (checkRecipeRequirements(currentRecipe))
             {
-                UnlockedRecipes[currentRecipe] += currentRecipe.defaultProgress;
-                Debug.Log("Workshop progress on: " + currentRecipe+ "is:" + UnlockedRecipes[currentRecipe]);
-                if (UnlockedRecipes[currentRecipe] >= 100)
+                UnlockedRecipes[currentRecipe].progress += recipe.defaultProgress;
+                Debug.Log("Workshop progress on: " + recipe + "is:" + UnlockedRecipes[currentRecipe]);
+                if (UnlockedRecipes[currentRecipe].progress >= 100)
                 {
-                    createStationFromRecipe(currentRecipe);
+                    UnlockedRecipes[currentRecipe].isDone = true;
+                    currentRecipe = -1;
+                    createStationFromRecipe(recipe);
                 }
             }
         }

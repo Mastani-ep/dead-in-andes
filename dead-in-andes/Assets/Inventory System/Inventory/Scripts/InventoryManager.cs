@@ -34,11 +34,11 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public void Remove(ItemObject item)
+    public void Remove(ItemObject item, int count)
     {
-        if (Items[item] > 1)
+        if (Items[item] > count)
         {
-            Items[item]--;
+            Items[item] -= count;
         }
         else
         {
