@@ -20,6 +20,11 @@ public class Workshop : Site
         allSites = Object.FindObjectsOfType<Site>(true);
     }
 
+    public void changeCurrentRecipe(RecipeProgress recipeProgress)
+    {
+        currentRecipe = UnlockedRecipes.IndexOf(recipeProgress);
+    }
+
     public bool checkRecipeRequirements(int recipeIndex)
     {
         // Check if we are starting the recipe (progress equals 0)
