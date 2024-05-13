@@ -11,6 +11,7 @@ public class Recipe : ScriptableObject
     public SiteType createdSiteType;
     public List<Ingridient> requiredItems = new ();
     public int _defaultProgress = 50;
+    public Sprite recipeIcon;
     public int defaultProgress
     {
         get { return _defaultProgress; }

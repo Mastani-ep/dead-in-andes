@@ -19,6 +19,15 @@ public class Site : MonoBehaviour
     public void ChangeCurrentCharacter(Character character)
     {
         currentCharacter = character;
+        if (currentCharacter)
+        {
+            ShowUI();
+        }
+    }
+
+    public virtual void ShowUI()
+    {
+        // function for showing UI e.g. button for certain sites like workshop
     }
     
     public virtual void generateItem()

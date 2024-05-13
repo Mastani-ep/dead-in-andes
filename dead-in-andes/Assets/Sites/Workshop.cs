@@ -11,6 +11,8 @@ public class Workshop : Site
     // currentRecipe is the index of current recipe in the list of unlocked recipes
     public int currentRecipe;
     public Site[] allSites;
+    
+    public WorkshopUI workshopUI;
     void Start()
     {
         _site_type = SiteType.Workshop;
@@ -86,5 +88,10 @@ public class Workshop : Site
             }
         }
     }
+
+    public override void ShowUI()
+    {
+        workshopUI.WorkshopUIButton.gameObject.SetActive(true);
+    } 
     
 }

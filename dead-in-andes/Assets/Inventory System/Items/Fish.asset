@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Fish
   m_EditorClassIdentifier: 
   itemName: Fish
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: ea2ddceefe68e434fa0d64684427d477, type: 3}
   description: 
   hungerModifier: 10
   isRaw: 1

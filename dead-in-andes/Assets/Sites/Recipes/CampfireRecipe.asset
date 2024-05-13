@@ -18,3 +18,4 @@ MonoBehaviour:
   - requiredItem: {fileID: 11400000, guid: d99c806bb2bd64c4ba1332c04becdb0c, type: 2}
     requiredAmount: 2
   _defaultProgress: 50
+  recipeIcon: {fileID: -1823865678, guid: 4926904fb4d09c245bc7acab4b9039d3, type: 3}
