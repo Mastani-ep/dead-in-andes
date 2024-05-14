@@ -19,6 +19,7 @@ public class WorkshopUI : MonoBehaviour
     public Image RecipeImage;
     public TextMeshProUGUI RecipeName;
     public Button recipeButton;
+    public GameObject inventoryButton;
     // private void Awake()
     // {
     //     Instance = this;
@@ -95,7 +96,19 @@ public class WorkshopUI : MonoBehaviour
             recipeButton.onClick.AddListener(() =>
             {
                 choseRecipe(recipeProgress);
-            });
+            });    
+            
+            // if (can craft)
+            // {
+            //     recipeButton.onClick.AddListener(() =>
+            //     {
+            //         choseRecipe(recipeProgress);
+            //     });    
+            // }
+            // else
+            // {
+            //     buton disabled so sad
+            // }
             
         }
         
@@ -129,6 +142,7 @@ public class WorkshopUI : MonoBehaviour
         {
             WorkshopUIPanel.SetActive(false);
             WorkshopUIButton.SetActive(true);
+            inventoryButton.SetActive(true);
             UnlistRecipes();
         }
         else
@@ -144,6 +158,7 @@ public class WorkshopUI : MonoBehaviour
             {
                 ClickRecipe(Workshop.UnlockedRecipes.FirstOrDefault(obj => obj.isDone == false));
             }
+            inventoryButton.SetActive(false);
         }
     }
 }

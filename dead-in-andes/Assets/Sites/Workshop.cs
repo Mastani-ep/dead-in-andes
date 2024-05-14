@@ -99,4 +99,9 @@ public class Workshop : Site
         workshopUI.WorkshopUIButton.gameObject.SetActive(true);
     } 
     
+    public override void HideUI()
+    {
+        workshopUI.WorkshopUIButton.gameObject.SetActive(false);
+    } 
+    
 }

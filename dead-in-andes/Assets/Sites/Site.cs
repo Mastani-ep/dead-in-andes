@@ -23,9 +23,18 @@ public class Site : MonoBehaviour
         {
             ShowUI();
         }
+        else
+        {
+            HideUI();
+        }
     }
 
     public virtual void ShowUI()
+    {
+        // function for showing UI e.g. button for certain sites like workshop
+    }
+    
+    public virtual void HideUI()
     {
         // function for showing UI e.g. button for certain sites like workshop
     }
