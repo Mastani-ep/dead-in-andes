@@ -5844,7 +5844,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0.9607843}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.9137255}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.23921569}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -6051,9 +6051,11 @@ MonoBehaviour:
   - recipe: {fileID: 11400000, guid: 133b2a8e1134c7146b30aea943b30750, type: 2}
     progress: 0
     isDone: 0
+    isSelected: 0
   - recipe: {fileID: 11400000, guid: bcc54d550f34f374c8ba9afbfb8d105c, type: 2}
     progress: 0
     isDone: 0
+    isSelected: 0
   inventoryManager: {fileID: 926754306}
   currentRecipe: 0
   allSites: []

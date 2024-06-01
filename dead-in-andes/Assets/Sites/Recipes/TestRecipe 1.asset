@@ -19,5 +19,5 @@ MonoBehaviour:
     requiredAmount: 2
   - requiredItem: {fileID: 11400000, guid: 5716e3015faa58440835b776e2f9ccde, type: 2}
     requiredAmount: 1
-  _defaultProgress: 50
+  _defaultProgress: 30
   recipeIcon: {fileID: 21300000, guid: 4e99c61be1140e741a83ecde8c16fccb, type: 3}

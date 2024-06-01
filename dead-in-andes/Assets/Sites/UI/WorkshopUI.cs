@@ -65,6 +65,10 @@ public class WorkshopUI : MonoBehaviour
             {
                 itemName.text = recipeProgress.recipe.recipeName;
                 recipeButton.onClick.AddListener(() => { ClickRecipe(recipeProgress); });
+                if (recipeProgress.isSelected)
+                {
+                    obj.transform.Find("SelectedUnderlay").gameObject.SetActive(true);
+                }
             }
             else
             {
@@ -78,40 +82,57 @@ public class WorkshopUI : MonoBehaviour
     public void ClickRecipe(RecipeProgress recipeProgress)
     {
         UnlistRecipesIngredients();
-        RecipeImage.sprite = recipeProgress.recipe.recipeIcon;
-        RecipeName.text = recipeProgress.recipe.recipeName;
-        RecipeProgress.value = recipeProgress.progress;
-        
-        foreach (var item in recipeProgress.recipe.requiredItems)
+        if (recipeProgress == null)
         {
-            GameObject obj = Instantiate(RecipeObjectItem, RecipeIngredientsContent);
-            var itemName = obj.transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>();
-            var itemCount = obj.transform.Find("ItemCount").GetComponent<TMPro.TextMeshProUGUI>();
-            var itemIcon = obj.transform.Find("ItemIcon").GetComponent<Image>();
-            
-            itemName.text = item.requiredItem.itemName;
-            itemCount.text = item.requiredAmount.ToString();
-            itemIcon.sprite = item.requiredItem.itemIcon;
-            recipeButton.onClick.RemoveAllListeners();
-            recipeButton.onClick.AddListener(() =>
-            {
-                choseRecipe(recipeProgress);
-            });    
-            
-            // if (can craft)
-            // {
-            //     recipeButton.onClick.AddListener(() =>
-            //     {
-            //         choseRecipe(recipeProgress);
-            //     });    
-            // }
-            // else
-            // {
-            //     buton disabled so sad
-            // }
-            
+            RecipeImage.sprite = null;
+            RecipeName.text = null;
+            RecipeProgress.value = 0f;
         }
-        
+        else
+        {
+            RecipeImage.sprite = recipeProgress.recipe.recipeIcon;
+            RecipeName.text = recipeProgress.recipe.recipeName;
+            RecipeProgress.value = recipeProgress.progress;
+
+            foreach (var item in recipeProgress.recipe.requiredItems)
+            {
+                GameObject obj = Instantiate(RecipeObjectItem, RecipeIngredientsContent);
+                var itemName = obj.transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>();
+                var itemCount = obj.transform.Find("ItemCount").GetComponent<TMPro.TextMeshProUGUI>();
+                var itemIcon = obj.transform.Find("ItemIcon").GetComponent<Image>();
+
+                itemName.text = item.requiredItem.itemName;
+                itemCount.text = item.requiredAmount.ToString();
+                itemIcon.sprite = item.requiredItem.itemIcon;
+
+                // if (can craft)
+                // {
+                //     recipeButton.onClick.AddListener(() =>
+                //     {
+                //         choseRecipe(recipeProgress);
+                //     });    
+                // }
+                // else
+                // {
+                //     buton disabled so sad
+                // }
+
+            }
+            
+            recipeButton.onClick.RemoveAllListeners();
+            if (Workshop.checkRecipeRequirements(Workshop.UnlockedRecipes.IndexOf(recipeProgress)))
+            {
+                recipeButton.onClick.AddListener(() => { choseRecipe(recipeProgress); });
+                recipeButton.enabled = true;
+                recipeButton.interactable = true;
+            }
+            else
+            {
+                recipeButton.enabled = false;
+                recipeButton.interactable = false;
+            }
+        }
+
     }
 
     public void choseRecipe(RecipeProgress recipeProgress)
@@ -156,7 +177,8 @@ public class WorkshopUI : MonoBehaviour
             }
             else
             {
-                ClickRecipe(Workshop.UnlockedRecipes.FirstOrDefault(obj => obj.isDone == false));
+                var recipe = Workshop.UnlockedRecipes.FirstOrDefault(obj => obj.isDone == false);
+                ClickRecipe(recipe);
             }
             inventoryButton.SetActive(false);
         }

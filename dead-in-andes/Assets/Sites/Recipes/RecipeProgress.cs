@@ -30,4 +30,5 @@ public class RecipeProgress
     public Recipe recipe;
     public int progress;
     public bool isDone;
+    public bool isSelected;
 }
