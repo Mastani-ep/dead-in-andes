@@ -15,12 +15,12 @@ public class TechnologySite : Site
 
     private void SetNextTechnology()
     {
-        if (currentTechnology == technologyRecipeList.Count - 1)
+        currentTechnology++;
+        if (currentTechnology == technologyRecipeList.Count)
         {
             technologySiteUI.SetResearchAsFinished();
             return;
         }
-        currentTechnology++;
         technologySiteUI.ResetAndSetNextTechnology(technologyRecipeList[currentTechnology].recipe.recipeName);
     }
 
