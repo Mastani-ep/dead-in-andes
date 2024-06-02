@@ -1,28 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Character : MonoBehaviour
 {
-    [SerializeField] private string _name = "lol";
-    [SerializeField] private bool _alive = true;
-
+    [FormerlySerializedAs("_name")] [SerializeField] public string characterName = "lol";
+    [SerializeField] private bool alive = true;
+    // [SerializeField] public Sprite characterSprite;
+    
     [Header("Needs")]    
-    [SerializeField] private int _hungerMeter = 0;
-    [SerializeField] private int _fatigueMeter = 0;
-    [SerializeField] private int _sicknessMeter = 0;
+    [SerializeField] public int hungerMeter = 0;
+    [SerializeField] public int fatigueMeter = 0;
+    [SerializeField] public int sicknessMeter = 0;
 
     public void NextDayChanges()
     {
-        if (_alive)
+        if (alive)
         {
-            _hungerMeter += 1;
-            _fatigueMeter += 1;
-            _sicknessMeter += 1;
+            hungerMeter += 1;
+            fatigueMeter += 1;
+            sicknessMeter += 1;
 
-            if (_hungerMeter >= 100)
+            if (hungerMeter >= 100)
             {
-                _alive = false;
+                alive = false;
             }
         }
     }
