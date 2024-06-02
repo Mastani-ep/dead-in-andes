@@ -54,18 +54,32 @@ public class DragDropCharacter : MonoBehaviour
     {
         if (availableSite)
         {
-            changeCurrentSite(availableSite);
-            availableSite.ChangeCurrentCharacter(GetComponent<Character>());
+            if (availableSite.CurrentCharacter)
+            {
+                switchSitesBetweenCharacters(availableSite);
+            }
+            else
+            {
+                changeCurrentSite(availableSite);
+            }
         }
         changeColorAlpha(1f);
 
         isBeingDragged = false;
     }
 
+    public void switchSitesBetweenCharacters(Site site)
+    {
+        availableSite.CurrentCharacter.gameObject.GetComponent<DragDropCharacter>()
+            .changeCurrentSite(currentSite);
+        currentSite = site;
+        currentSite.ChangeCurrentCharacter(GetComponent<Character>());
+    }
     public void changeCurrentSite(Site site)
     {
         currentSite.ChangeCurrentCharacter(null);
         currentSite = site;
+        currentSite.ChangeCurrentCharacter(GetComponent<Character>());
         print("CHANGED SITE::" + currentSite + site.SiteType);
     }
 

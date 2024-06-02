@@ -9,12 +9,22 @@ public class Site : MonoBehaviour
 {
     [SerializeField] protected SiteType _site_type;
     [SerializeField] protected Character currentCharacter;
+    [SerializeField] private GameObject connectedObject;
+    public Character CurrentCharacter => currentCharacter;
 
     public SiteType SiteType => _site_type;
     // public string getSiteType()
     // {
         
     // }
+
+    public void OnEnable()
+    {
+        if (connectedObject)
+        {
+            connectedObject.SetActive(true);
+        }
+    }
 
     public void ChangeCurrentCharacter(Character character)
     {
