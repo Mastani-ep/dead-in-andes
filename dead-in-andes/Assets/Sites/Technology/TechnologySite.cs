@@ -30,14 +30,17 @@ public class TechnologySite : Site
         {
             return;
         }
+
+        var recipe = technologyRecipeList[currentTechnology].recipe;
         
-        technologyRecipeList[currentTechnology].progress += technologyRecipeList[currentTechnology].recipe.DefaultResearchProgress;
-        technologySiteUI.IncreaseResearchSliderProgress(technologyRecipeList[currentTechnology].recipe.DefaultResearchProgress);
+        technologyRecipeList[currentTechnology].progress += recipe.DefaultResearchProgress;
+        technologySiteUI.IncreaseResearchSliderProgress(recipe.DefaultResearchProgress);
         
         if (technologyRecipeList[currentTechnology].progress >= 100)
         {
             technologyRecipeList[currentTechnology].isDone = true;
-            workshop.AddRecipeAfterResearch(technologyRecipeList[currentTechnology].recipe);
+            workshop.AddRecipeAfterResearch(recipe);
+            technologySiteUI.OpenPopUpPanel(recipe);
             SetNextTechnology();
         }
     }
