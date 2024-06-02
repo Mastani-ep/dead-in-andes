@@ -9,7 +9,7 @@ public class ObjectGrantingSite : Site
     [SerializeField] private string usedAbility;
     // public InventoryObject inventory;
 
-    public override void generateItem()
+    public override void executeSiteFunctionality()
     {
         if (currentCharacter)
         {

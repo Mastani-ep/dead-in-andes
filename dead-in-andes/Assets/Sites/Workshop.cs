@@ -20,7 +20,7 @@ public class Workshop : Site
         allSites = Object.FindObjectsOfType<Site>(true);
     }
 
-    public void changeCurrentRecipe(RecipeProgress recipeProgress)
+    public void ChangeCurrentRecipe(RecipeProgress recipeProgress)
     {
         if(currentRecipe != -1){
             UnlockedRecipes[currentRecipe].isSelected = false;
@@ -29,7 +29,7 @@ public class Workshop : Site
         recipeProgress.isSelected = true;
     }
 
-    public bool checkRecipeRequirements(int recipeIndex)
+    public bool CheckRecipeRequirements(int recipeIndex)
     {
         // Check if we are starting the recipe (progress equals 0)
         // If not (>0) then we just continue the recipe - requirement met 
@@ -61,18 +61,18 @@ public class Workshop : Site
         return true;
     }
 
-    public bool checkAndValidateRecipeRequirements(int recipeIndex)
+    public bool CheckAndValidateRecipeRequirements(int recipeIndex)
     {
-        if (checkRecipeRequirements(recipeIndex))
+        if (CheckRecipeRequirements(recipeIndex))
         {
-            removeItemsIfFirstCraftingIteration(recipeIndex);
+            RemoveItemsIfFirstCraftingIteration(recipeIndex);
             return true;
         }
 
         return false;
     }
 
-    public void removeItemsIfFirstCraftingIteration(int recipeIndex)
+    public void RemoveItemsIfFirstCraftingIteration(int recipeIndex)
     {
         if (UnlockedRecipes[recipeIndex].progress == 0)
         {
@@ -83,27 +83,27 @@ public class Workshop : Site
         }
     }
 
-    public override void generateItem()
+    public override void executeSiteFunctionality()
     {
         if (currentCharacter && currentRecipe != -1)
         {
             Recipe recipe = UnlockedRecipes[currentRecipe].recipe;
             // It is important to add some modificator for default progress later based on i.e. character stats
-            if (checkAndValidateRecipeRequirements(currentRecipe))
+            if (CheckAndValidateRecipeRequirements(currentRecipe))
             {
-                UnlockedRecipes[currentRecipe].progress += recipe.defaultProgress;
+                UnlockedRecipes[currentRecipe].progress += recipe.DefaultBuildProgress;
                 Debug.Log("Workshop progress on: " + recipe + "is:" + UnlockedRecipes[currentRecipe]);
                 if (UnlockedRecipes[currentRecipe].progress >= 100)
                 {
                     UnlockedRecipes[currentRecipe].isDone = true;
                     currentRecipe = -1;
-                    createStationFromRecipe(recipe);
+                    CreateStationFromRecipe(recipe);
                 }
             }
         }
     }
 
-    public void createStationFromRecipe(Recipe recipe)
+    public void CreateStationFromRecipe(Recipe recipe)
     {
         foreach (var station in allSites)
         {
@@ -123,6 +123,11 @@ public class Workshop : Site
     public override void HideUI()
     {
         workshopUI.WorkshopUIButton.gameObject.SetActive(false);
-    } 
+    }
+
+    public void AddRecipeAfterResearch(Recipe researchedRecipe)
+    {
+        UnlockedRecipes.Add(new RecipeProgress(researchedRecipe));
+    }
     
 }

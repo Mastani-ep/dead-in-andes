@@ -17,14 +17,14 @@ public class DayStagesController : MonoBehaviour
             case DayStage.Morning:
                 foreach (var site in allSites)
                 {
-                    site.generateItem();
+                    site.executeSiteFunctionality();
                 }
                 _dayStage = DayStage.Afternoon;
                 break;
             case DayStage.Afternoon:
                 foreach (var site in allSites)
                 {
-                    site.generateItem();
+                    site.executeSiteFunctionality();
                 }
                 _dayStage = DayStage.Evening;
                 break;

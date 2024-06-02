@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
+
 public class WorkshopUI : MonoBehaviour
 {
     public Workshop Workshop;
@@ -11,14 +13,16 @@ public class WorkshopUI : MonoBehaviour
     public GameObject RecipeItem;
     public GameObject WorkshopUIPanel;
     public GameObject WorkshopUIButton;
-    
+
     [Header("Recipe Description Elements")]
     public Transform RecipeIngredientsContent;
+
     public GameObject RecipeObjectItem;
-    public Slider RecipeProgress;
+    [FormerlySerializedAs("RecipeProgress")] public Slider RecipeProgressSlider;
     public Image RecipeImage;
     public TextMeshProUGUI RecipeName;
     public Button recipeButton;
+
     public GameObject inventoryButton;
     // private void Awake()
     // {
@@ -81,18 +85,21 @@ public class WorkshopUI : MonoBehaviour
 
     public void ClickRecipe(RecipeProgress recipeProgress)
     {
+        recipeButton.onClick.RemoveAllListeners();
         UnlistRecipesIngredients();
         if (recipeProgress == null)
         {
             RecipeImage.sprite = null;
             RecipeName.text = null;
-            RecipeProgress.value = 0f;
+            RecipeProgressSlider.value = 0f;
+            recipeButton.enabled = false;
+            recipeButton.interactable = false;
         }
         else
         {
             RecipeImage.sprite = recipeProgress.recipe.recipeIcon;
             RecipeName.text = recipeProgress.recipe.recipeName;
-            RecipeProgress.value = recipeProgress.progress;
+            RecipeProgressSlider.value = recipeProgress.progress;
 
             foreach (var item in recipeProgress.recipe.requiredItems)
             {
@@ -116,13 +123,11 @@ public class WorkshopUI : MonoBehaviour
                 // {
                 //     buton disabled so sad
                 // }
-
             }
             
-            recipeButton.onClick.RemoveAllListeners();
-            if (Workshop.checkRecipeRequirements(Workshop.UnlockedRecipes.IndexOf(recipeProgress)))
+            if (Workshop.CheckRecipeRequirements(Workshop.UnlockedRecipes.IndexOf(recipeProgress)))
             {
-                recipeButton.onClick.AddListener(() => { choseRecipe(recipeProgress); });
+                recipeButton.onClick.AddListener(() => { ChoseRecipe(recipeProgress); });
                 recipeButton.enabled = true;
                 recipeButton.interactable = true;
             }
@@ -132,12 +137,11 @@ public class WorkshopUI : MonoBehaviour
                 recipeButton.interactable = false;
             }
         }
-
     }
 
-    public void choseRecipe(RecipeProgress recipeProgress)
+    public void ChoseRecipe(RecipeProgress recipeProgress)
     {
-        Workshop.changeCurrentRecipe(recipeProgress);
+        Workshop.ChangeCurrentRecipe(recipeProgress);
         ToggleWorkshopUI();
     }
 
@@ -148,7 +152,7 @@ public class WorkshopUI : MonoBehaviour
             Destroy(item.gameObject);
         }
     }
-    
+
     public void UnlistRecipes()
     {
         foreach (Transform recipe in RecipesContent)
@@ -171,7 +175,7 @@ public class WorkshopUI : MonoBehaviour
             WorkshopUIPanel.SetActive(true);
             WorkshopUIButton.SetActive(false);
             ListRecipes();
-            if (Workshop.currentRecipe != -1)
+            if (Workshop.currentRecipe != -1 && Workshop.UnlockedRecipes.Count > 0)
             {
                 ClickRecipe(Workshop.UnlockedRecipes[Workshop.currentRecipe]);
             }
@@ -180,6 +184,7 @@ public class WorkshopUI : MonoBehaviour
                 var recipe = Workshop.UnlockedRecipes.FirstOrDefault(obj => obj.isDone == false);
                 ClickRecipe(recipe);
             }
+
             inventoryButton.SetActive(false);
         }
     }

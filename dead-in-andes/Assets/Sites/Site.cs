@@ -39,7 +39,7 @@ public class Site : MonoBehaviour
         // function for showing UI e.g. button for certain sites like workshop
     }
     
-    public virtual void generateItem()
+    public virtual void executeSiteFunctionality()
     {
         // Debug.Log("This should never happen");
     }

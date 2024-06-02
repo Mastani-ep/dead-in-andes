@@ -1,7 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 // Probably something better for dictionary serialization could be done but IDK
 // It will not show progress properly in Unity Editor
@@ -31,4 +28,12 @@ public class RecipeProgress
     public int progress;
     public bool isDone;
     public bool isSelected;
+
+    public RecipeProgress(Recipe recipe)
+    {
+        this.recipe = recipe;
+        this.progress = 0;
+        this.isDone = false;
+        this.isSelected = false;
+    }
 }
