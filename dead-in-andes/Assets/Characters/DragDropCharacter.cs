@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+
 public class DragDropCharacter : MonoBehaviour
 {
 
@@ -47,11 +48,19 @@ public class DragDropCharacter : MonoBehaviour
         // offset = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
         changeColorAlpha(0.6f);
         isBeingDragged = true;
+        foreach(var site in FindObjectsOfType<Site>())
+        {
+            site.playFlashingAnimation();
+        }
         
     }
 
     public void OnMouseUp()
     {
+        foreach(var site in FindObjectsOfType<Site>())
+        {
+            site.stopFlashingAnimation();
+        }
         if (availableSite)
         {
             if (availableSite.CurrentCharacter)

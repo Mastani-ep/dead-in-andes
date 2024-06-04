@@ -13,10 +13,17 @@ public class Site : MonoBehaviour
     public Character CurrentCharacter => currentCharacter;
 
     public SiteType SiteType => _site_type;
+
+    [SerializeField] private Animator animator;
     // public string getSiteType()
     // {
         
     // }
+
+    void Start()
+    {
+        animator = gameObject.GetComponent<Animator>();
+    }
 
     public void OnEnable()
     {
@@ -25,7 +32,18 @@ public class Site : MonoBehaviour
             connectedObject.SetActive(true);
         }
     }
-
+    
+    public void playFlashingAnimation()
+    {
+        Debug.Log("aaaaaaaaaaa");
+        animator.Play("Flashing");
+    }
+    
+    public void stopFlashingAnimation()
+    {
+        animator.Play("NormalState");
+    }
+    
     public void ChangeCurrentCharacter(Character character)
     {
         currentCharacter = character;

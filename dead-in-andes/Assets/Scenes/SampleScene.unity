@@ -306,6 +306,7 @@ GameObject:
   - component: {fileID: 11273118}
   - component: {fileID: 11273120}
   - component: {fileID: 11273116}
+  - component: {fileID: 11273121}
   m_Layer: 0
   m_Name: SleepingSite1
   m_TagString: Untagged
@@ -440,6 +441,28 @@ MonoBehaviour:
   _site_type: 0
   currentCharacter: {fileID: 0}
   connectedObject: {fileID: 0}
+  animator: {fileID: 0}
+--- !u!95 &11273121
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11273115}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 48a10dbaf8b55f74bbf70699c97461ad, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &19088805
 GameObject:
   m_ObjectHideFlags: 0
@@ -2469,6 +2492,7 @@ GameObject:
   - component: {fileID: 292406975}
   - component: {fileID: 292406974}
   - component: {fileID: 292406977}
+  - component: {fileID: 292406978}
   m_Layer: 0
   m_Name: CampfireSite3
   m_TagString: Untagged
@@ -2491,6 +2515,7 @@ MonoBehaviour:
   _site_type: 1
   currentCharacter: {fileID: 0}
   connectedObject: {fileID: 791069256}
+  animator: {fileID: 0}
 --- !u!212 &292406975
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2603,6 +2628,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
+--- !u!95 &292406978
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 292406973}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 48a10dbaf8b55f74bbf70699c97461ad, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &292753556
 GameObject:
   m_ObjectHideFlags: 0
@@ -5072,6 +5118,7 @@ GameObject:
   - component: {fileID: 573274626}
   - component: {fileID: 573274625}
   - component: {fileID: 573274624}
+  - component: {fileID: 573274628}
   m_Layer: 0
   m_Name: CampfireSite4
   m_TagString: Untagged
@@ -5139,6 +5186,7 @@ MonoBehaviour:
   _site_type: 1
   currentCharacter: {fileID: 0}
   connectedObject: {fileID: 791069256}
+  animator: {fileID: 0}
 --- !u!212 &573274626
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5206,6 +5254,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &573274628
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 573274623}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 48a10dbaf8b55f74bbf70699c97461ad, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &588215661
 GameObject:
   m_ObjectHideFlags: 0
@@ -7391,6 +7460,7 @@ GameObject:
   - component: {fileID: 828914038}
   - component: {fileID: 828914036}
   - component: {fileID: 828914040}
+  - component: {fileID: 828914041}
   m_Layer: 0
   m_Name: HuntingSite
   m_TagString: Untagged
@@ -7525,8 +7595,30 @@ MonoBehaviour:
   _site_type: 0
   currentCharacter: {fileID: 0}
   connectedObject: {fileID: 0}
+  animator: {fileID: 0}
   generatedItem: {fileID: 11400000, guid: 812b8e763a357e24db48b39419c10183, type: 2}
   usedAbility: 
+--- !u!95 &828914041
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 828914035}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 48a10dbaf8b55f74bbf70699c97461ad, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &841130673
 GameObject:
   m_ObjectHideFlags: 0
@@ -8854,6 +8946,7 @@ GameObject:
   - component: {fileID: 993673293}
   - component: {fileID: 993673292}
   - component: {fileID: 993673295}
+  - component: {fileID: 993673296}
   m_Layer: 0
   m_Name: CampfireSite2
   m_TagString: Untagged
@@ -8876,6 +8969,7 @@ MonoBehaviour:
   _site_type: 1
   currentCharacter: {fileID: 0}
   connectedObject: {fileID: 791069256}
+  animator: {fileID: 0}
 --- !u!212 &993673293
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8988,6 +9082,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
+--- !u!95 &993673296
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 993673291}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 48a10dbaf8b55f74bbf70699c97461ad, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &999380219
 GameObject:
   m_ObjectHideFlags: 0
@@ -10884,6 +10999,7 @@ GameObject:
   - component: {fileID: 1179254059}
   - component: {fileID: 1179254057}
   - component: {fileID: 1179254061}
+  - component: {fileID: 1179254062}
   m_Layer: 0
   m_Name: WoodSite
   m_TagString: Untagged
@@ -11018,8 +11134,30 @@ MonoBehaviour:
   _site_type: 0
   currentCharacter: {fileID: 0}
   connectedObject: {fileID: 0}
+  animator: {fileID: 0}
   generatedItem: {fileID: 11400000, guid: d99c806bb2bd64c4ba1332c04becdb0c, type: 2}
   usedAbility: 
+--- !u!95 &1179254062
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179254056}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 48a10dbaf8b55f74bbf70699c97461ad, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1214167417
 GameObject:
   m_ObjectHideFlags: 0
@@ -13115,6 +13253,7 @@ GameObject:
   - component: {fileID: 1462643139}
   - component: {fileID: 1462643138}
   - component: {fileID: 1462643141}
+  - component: {fileID: 1462643142}
   m_Layer: 0
   m_Name: CampfireSite1
   m_TagString: Untagged
@@ -13137,6 +13276,7 @@ MonoBehaviour:
   _site_type: 1
   currentCharacter: {fileID: 0}
   connectedObject: {fileID: 791069256}
+  animator: {fileID: 0}
 --- !u!212 &1462643139
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13249,6 +13389,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
+--- !u!95 &1462643142
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1462643137}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 48a10dbaf8b55f74bbf70699c97461ad, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1476606734
 GameObject:
   m_ObjectHideFlags: 0
@@ -13449,7 +13610,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.84, y: -2.83, z: 0}
-  m_LocalScale: {x: 0.9, y: 1.8, z: 1}
+  m_LocalScale: {x: 0.8999999, y: 1.7999998, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -14147,6 +14308,9 @@ GameObject:
   - component: {fileID: 1519312414}
   - component: {fileID: 1519312416}
   - component: {fileID: 1519312412}
+  - component: {fileID: 1519312419}
+  - component: {fileID: 1519312418}
+  - component: {fileID: 1519312420}
   m_Layer: 0
   m_Name: SleepingSite2
   m_TagString: Untagged
@@ -14241,7 +14405,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.23760058, g: 0.5198769, b: 0.83396226, a: 1}
+  m_Color: {r: 0.23529413, g: 0.5254902, b: 0.8352942, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -14251,21 +14415,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &1519312415
-Transform:
+--- !u!224 &1519312415
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1519312411}
-  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 16.84, y: 0.58000016, z: 0}
-  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.9999998, y: 1.9999996, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 939732018}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 16.84, y: 0.58000016}
+  m_SizeDelta: {x: 1, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1519312416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14281,6 +14449,66 @@ MonoBehaviour:
   _site_type: 0
   currentCharacter: {fileID: 0}
   connectedObject: {fileID: 0}
+  animator: {fileID: 0}
+--- !u!114 &1519312418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519312411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1519312419
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519312411}
+  m_CullTransparentMesh: 1
+--- !u!95 &1519312420
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519312411}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 48a10dbaf8b55f74bbf70699c97461ad, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1520900921
 GameObject:
   m_ObjectHideFlags: 0
@@ -17768,6 +17996,7 @@ GameObject:
   - component: {fileID: 1895767895}
   - component: {fileID: 1895767901}
   - component: {fileID: 1895767900}
+  - component: {fileID: 1895767902}
   m_Layer: 0
   m_Name: TechnologySite
   m_TagString: Untagged
@@ -17919,6 +18148,7 @@ MonoBehaviour:
   _site_type: 3
   currentCharacter: {fileID: 0}
   connectedObject: {fileID: 0}
+  animator: {fileID: 1895767902}
   technologyRecipeList:
   - recipe: {fileID: 11400000, guid: 133b2a8e1134c7146b30aea943b30750, type: 2}
     progress: 0
@@ -17929,6 +18159,27 @@ MonoBehaviour:
   technologySiteUI: {fileID: 1895767900}
   currentTechnology: 0
   workshop: {fileID: 2006286357}
+--- !u!95 &1895767902
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1895767894}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 48a10dbaf8b55f74bbf70699c97461ad, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1908380719
 GameObject:
   m_ObjectHideFlags: 0
@@ -18306,6 +18557,7 @@ GameObject:
   - component: {fileID: 1961569212}
   - component: {fileID: 1961569210}
   - component: {fileID: 1961569214}
+  - component: {fileID: 1961569215}
   m_Layer: 0
   m_Name: FishingSite
   m_TagString: Untagged
@@ -18440,8 +18692,30 @@ MonoBehaviour:
   _site_type: 0
   currentCharacter: {fileID: 0}
   connectedObject: {fileID: 0}
+  animator: {fileID: 0}
   generatedItem: {fileID: 11400000, guid: d8875255a8764c946b74dcc425da690d, type: 2}
   usedAbility: 
+--- !u!95 &1961569215
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961569209}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 48a10dbaf8b55f74bbf70699c97461ad, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1963337739
 GameObject:
   m_ObjectHideFlags: 0
@@ -18740,6 +19014,7 @@ GameObject:
   - component: {fileID: 2006286357}
   - component: {fileID: 2006286358}
   - component: {fileID: 2006286353}
+  - component: {fileID: 2006286359}
   m_Layer: 0
   m_Name: WorkshopSite
   m_TagString: Untagged
@@ -18874,6 +19149,7 @@ MonoBehaviour:
   _site_type: 1
   currentCharacter: {fileID: 0}
   connectedObject: {fileID: 0}
+  animator: {fileID: 2006286359}
   UnlockedRecipes: []
   inventoryManager: {fileID: 926754306}
   currentRecipe: 0
@@ -18903,6 +19179,27 @@ MonoBehaviour:
   RecipeName: {fileID: 1823314633}
   recipeButton: {fileID: 1963337741}
   inventoryButton: {fileID: 999380219}
+--- !u!95 &2006286359
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006286352}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 48a10dbaf8b55f74bbf70699c97461ad, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2026255583
 GameObject:
   m_ObjectHideFlags: 0
@@ -19427,6 +19724,7 @@ GameObject:
   - component: {fileID: 2114923611}
   - component: {fileID: 2114923609}
   - component: {fileID: 2114923613}
+  - component: {fileID: 2114923614}
   m_Layer: 0
   m_Name: FruitSite
   m_TagString: Untagged
@@ -19561,8 +19859,30 @@ MonoBehaviour:
   _site_type: 0
   currentCharacter: {fileID: 0}
   connectedObject: {fileID: 0}
+  animator: {fileID: 0}
   generatedItem: {fileID: 11400000, guid: 5716e3015faa58440835b776e2f9ccde, type: 2}
   usedAbility: 
+--- !u!95 &2114923614
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2114923608}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 48a10dbaf8b55f74bbf70699c97461ad, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2127968734
 GameObject:
   m_ObjectHideFlags: 0
