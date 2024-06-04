@@ -27,6 +27,11 @@ public class Site : MonoBehaviour
 
     public void OnEnable()
     {
+        if (!animator)
+        {
+            animator = gameObject.GetComponent<Animator>();
+        }
+
         if (connectedObject)
         {
             connectedObject.SetActive(true);
