@@ -15,6 +15,7 @@ public class ExplorationManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI currentlyExploredText;
     [SerializeField] private float currentProgress;
     [SerializeField] private Slider explorationProgressSlider;
+    [SerializeField] private ExplorationFinishedUI explorationFinishedUI;
 
     private void Awake()
     {
@@ -45,20 +46,9 @@ public class ExplorationManager : MonoBehaviour
                 RandomizeNewSite();
             }
 
-            AddItemsToInventory();
+            explorationFinishedUI.UpdateExplorationFinishedScreen(explorationTarget);
             exploredSitesCount++;
             UpdateExplorationScreen();
-        }
-    }
-
-    private void AddItemsToInventory()
-    {
-        foreach (var item in explorationTarget.Items)
-        {
-            for (int i = 0; i < Random.Range(item.MinAmount, item.MaxAmount); i++)
-            {
-                InventoryManager.Instance.Add(item.Item);
-            }
         }
     }
 

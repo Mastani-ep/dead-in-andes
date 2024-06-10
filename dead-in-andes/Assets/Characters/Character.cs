@@ -1,3 +1,4 @@
+using Characters;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -25,6 +26,40 @@ public class Character : MonoBehaviour
     [SerializeField] public int craftsmanship;
     [SerializeField] public int exploration;
 
+    
+    public int this[SkillType skillType]
+    {
+        get
+        {
+            return skillType switch
+            {
+                SkillType.Gathering => gathering,
+                SkillType.Hunting => hunting,
+                SkillType.Fishing => fishing,
+                SkillType.Cooking => cooking,
+                SkillType.Communication => communication,
+                SkillType.Knowledge => knowledge,
+                SkillType.Craftsmanship => craftsmanship,
+                SkillType.Exploration => exploration,
+            };
+        }
+        // set
+        // {
+        //     switch (skillType)
+        //     {
+        //         case SkillType.Gathering:
+        //             Gathering = value;
+        //             break;
+        //         case SkillType.Cooking:
+        //             Cooking = value;
+        //             break;
+        //         default:
+        //             throw new ArgumentOutOfRangeException(nameof(skillType), $"Not expected skill type value: {skillType}");
+        //     }
+        // }
+    }
+    
+    
     public void NextDayChanges()
     {
         if (alive)

@@ -21,3 +21,4 @@ MonoBehaviour:
   - Item: {fileID: 11400000, guid: 738a822da1d20c048b3182c73c270d10, type: 2}
     MinAmount: 0
     MaxAmount: 2
+  usefulSkillType: 1
