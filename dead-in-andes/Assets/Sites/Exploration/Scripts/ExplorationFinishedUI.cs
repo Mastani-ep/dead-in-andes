@@ -27,6 +27,7 @@ public class ExplorationFinishedUI : MonoBehaviour
     public void UpdateExplorationFinishedScreen(ExplorationTarget explorationTarget)
     {
         explorationFinishedScreen.SetActive(true);
+        GameManager.Instance.IncreaseLockingInteractionCount();
         ListItems(explorationTarget);
         ListCharacters(explorationTarget);
     }
@@ -116,6 +117,6 @@ public class ExplorationFinishedUI : MonoBehaviour
     public void CloseExplorationPopup()
     {
         explorationPopupScreen.SetActive(false);
+        GameManager.Instance.DecreaseLockingInteractionCount();
     }
-    
 }

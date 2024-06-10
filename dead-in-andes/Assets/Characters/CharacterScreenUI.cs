@@ -105,6 +105,7 @@ public class CharacterScreenUI : MonoBehaviour
     
     public void OpenCharacterScreen()
     {
+        GameManager.Instance.IncreaseLockingInteractionCount();
         characterScreen.SetActive(true);
         inventoryButton.SetActive(false);
         characterScreenButton.SetActive(false);
@@ -113,6 +114,7 @@ public class CharacterScreenUI : MonoBehaviour
     
     public void CloseCharacterScreen()
     {
+        GameManager.Instance.DecreaseLockingInteractionCount();
         characterScreen.SetActive(false);
         inventoryButton.SetActive(true);
         characterScreenButton.SetActive(true);

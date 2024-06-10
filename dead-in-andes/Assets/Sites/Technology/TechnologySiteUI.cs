@@ -33,11 +33,13 @@ public class TechnologySiteUI : MonoBehaviour
     {
         technologyNamePopUp.text = recipe.recipeName;
         technologySprite.sprite = recipe.recipeIcon;
+        GameManager.Instance.IncreaseLockingInteractionCount();
         popUpPanel.SetActive(true);
     }
 
     public void ClosePopUpPanel()
     {
+        GameManager.Instance.DecreaseLockingInteractionCount();
         popUpPanel.SetActive(false);
     }
 }

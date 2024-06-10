@@ -17,14 +17,15 @@ public class CameraController : MonoBehaviour
     {
         float mouseX = Input.mousePosition.x;
         float screenWidth = Screen.width;
-        if (Input.GetKeyDown(KeyCode.D))
+        int parallaxLock = GameManager.Instance.LockedParallaxScrolling;
+        if (Input.GetKeyDown(KeyCode.D) && parallaxLock == 0)
         {
             translateByKey(1f, buttonTranslation);
             return;
         }
 
         // Move left when A key is pressed
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A) && parallaxLock == 0)
         {
             translateByKey(-1f, buttonTranslation);
             return;
@@ -32,7 +33,7 @@ public class CameraController : MonoBehaviour
 
         float distanceFromCenter = Mathf.Abs(mouseX - screenWidth / 2);
         
-        if (distanceFromCenter < screenWidth * 0.45)
+        if (distanceFromCenter < screenWidth * 0.45 || parallaxLock != 0)
         {
             return;
         }

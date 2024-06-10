@@ -165,6 +165,7 @@ public class WorkshopUI : MonoBehaviour
     {
         if (WorkshopUIPanel.activeSelf)
         {
+            GameManager.Instance.DecreaseLockingInteractionCount();
             WorkshopUIPanel.SetActive(false);
             WorkshopUIButton.SetActive(true);
             inventoryButton.SetActive(true);
@@ -172,6 +173,7 @@ public class WorkshopUI : MonoBehaviour
         }
         else
         {
+            GameManager.Instance.IncreaseLockingInteractionCount();
             WorkshopUIPanel.SetActive(true);
             WorkshopUIButton.SetActive(false);
             ListRecipes();

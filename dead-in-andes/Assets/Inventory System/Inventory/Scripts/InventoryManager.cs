@@ -86,11 +86,13 @@ public class InventoryManager : MonoBehaviour
     {
         if (Inventory.activeSelf)
         {
+            GameManager.Instance.DecreaseLockingInteractionCount();
             Inventory.SetActive(false);
             InventoryButton.SetActive(true);
         }
         else
         {
+            GameManager.Instance.IncreaseLockingInteractionCount();
             Inventory.SetActive(true);
             InventoryButton.SetActive(false);
             ListItems();
