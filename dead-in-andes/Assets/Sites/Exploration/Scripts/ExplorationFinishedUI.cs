@@ -4,16 +4,21 @@ using TMPro;
 
 public class ExplorationFinishedUI : MonoBehaviour
 {
+    [Header("Exploration Choice Screen")]
     [SerializeField] private Character[] charactersList;
     [SerializeField] private GameObject characterPrefab;
+    [SerializeField] private Transform itemContent;
     [SerializeField] private Transform characterContent;
     [SerializeField] private GameObject explorationItem;
     [SerializeField] private TextMeshProUGUI explorationSiteName;
     [SerializeField] private TextMeshProUGUI usefulSkillName;
     [SerializeField] private GameObject explorationFinishedScreen;
-    [SerializeField] private Transform itemContent;
-
-
+    
+    [Header("Exploration Finished Screen")]
+    [SerializeField] private GameObject explorationPopupScreen;
+    [SerializeField] private Transform itemPopupContent;
+    
+    
     void OnEnable()
     {
         charactersList = Object.FindObjectsOfType<Character>();
@@ -73,27 +78,44 @@ public class ExplorationFinishedUI : MonoBehaviour
             abilitySlider.value = character[explorationTarget.usefulSkillType];
             abilityValue.text = character[explorationTarget.usefulSkillType].ToString();
 
-            
-            characterButton.onClick.AddListener(() => { ChosenCharacter(character, explorationTarget); });
+            characterButton.onClick.AddListener(() => { ChoseCharacterForExplorationAction(character, explorationTarget); });
         }
     }
 
-    private void ChosenCharacter(Character character, ExplorationTarget explorationTarget)
+    private void ChoseCharacterForExplorationAction(Character character, ExplorationTarget explorationTarget)
     {
-        AddItemsToInventory(explorationTarget, character[explorationTarget.usefulSkillType]);
+        AddItemsToInventoryAndPreparePopup(explorationTarget, character[explorationTarget.usefulSkillType]);
         explorationFinishedScreen.SetActive(false);
     }
     
     
-    private void AddItemsToInventory(ExplorationTarget explorationTarget, int abilityValue)
+    private void AddItemsToInventoryAndPreparePopup(ExplorationTarget explorationTarget, int abilityValue)
     {
+        foreach (Transform item in itemPopupContent)
+        {
+            Destroy(item.gameObject);
+        }
+        explorationPopupScreen.SetActive(true);
+        
         foreach (var item in explorationTarget.Items)
         {
-            for (int i = 0; i < Random.Range(item.MinAmount + (abilityValue * (item.MaxAmount - item.MinAmount)) / 100f, item.MaxAmount); i++)
-            {
-                InventoryManager.Instance.Add(item.Item);
-            }
+            int itemsAdded = Random.Range(item.MinAmount + (abilityValue * (item.MaxAmount - item.MinAmount)) / 100, item.MaxAmount);
+            InventoryManager.Instance.Add(item.Item, itemsAdded);
+            
+            GameObject obj = Instantiate(explorationItem, itemPopupContent);
+            var itemName = obj.transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>();
+            var itemCount = obj.transform.Find("ItemCount").GetComponent<TMPro.TextMeshProUGUI>();
+            var itemIcon = obj.transform.Find("ItemIcon").GetComponent<Image>();
+
+            itemName.text = item.Item.itemName;
+            itemCount.text = itemsAdded.ToString();
+            itemIcon.sprite = item.Item.itemIcon;
         }
+    }
+
+    public void CloseExplorationPopup()
+    {
+        explorationPopupScreen.SetActive(false);
     }
     
 }

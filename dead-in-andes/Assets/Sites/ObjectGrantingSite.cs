@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjectGrantingSite : Site
@@ -13,7 +11,8 @@ public class ObjectGrantingSite : Site
     {
         if (currentCharacter)
         {
-            InventoryManager.Instance.Add(generatedItem);
+            InventoryManager.Instance.Add(generatedItem, 1);
+            // TODO Currently only adds one
             Debug.Log("Generated: " + generatedItem.itemName);
         }
     }

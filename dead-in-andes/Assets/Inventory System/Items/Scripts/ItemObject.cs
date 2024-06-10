@@ -1,3 +1,5 @@
+using Characters;
+using Inventory;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -8,4 +10,7 @@ public abstract class ItemObject : ScriptableObject
     [FormerlySerializedAs("icon")] public Sprite itemIcon;
     [TextArea(15,20)]
     public string description;
+    public NeedType needType;
+    public ItemType type;
+    // public int needChangeModifier = 0;
 }

@@ -43,22 +43,44 @@ public class Character : MonoBehaviour
                 SkillType.Exploration => exploration,
             };
         }
-        // set
-        // {
-        //     switch (skillType)
-        //     {
-        //         case SkillType.Gathering:
-        //             Gathering = value;
-        //             break;
-        //         case SkillType.Cooking:
-        //             Cooking = value;
-        //             break;
-        //         default:
-        //             throw new ArgumentOutOfRangeException(nameof(skillType), $"Not expected skill type value: {skillType}");
-        //     }
-        // }
     }
     
+    
+    public int this[NeedType needType]
+    {
+        get
+        {
+            return needType switch
+            {
+                NeedType.Hunger => hungerMeter,
+                NeedType.Fatigue => fatigueMeter,
+                NeedType.Sickness => sicknessMeter,
+                NeedType.Injury => injuryMeter,
+                NeedType.Depression => depressionMeter,
+            };
+        }
+        set
+        {
+            switch (needType)
+            {
+                case NeedType.Hunger:
+                    hungerMeter = value;
+                    break;
+                case NeedType.Fatigue:
+                    fatigueMeter = value;
+                    break;
+                case NeedType.Sickness:
+                    sicknessMeter = value;
+                    break;
+                case NeedType.Injury:
+                    injuryMeter = value;
+                    break;
+                case NeedType.Depression:
+                    depressionMeter = value;
+                    break;
+            }
+        }
+    }
     
     public void NextDayChanges()
     {

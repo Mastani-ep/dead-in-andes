@@ -15,5 +15,7 @@ MonoBehaviour:
   itemName: Meat
   itemIcon: {fileID: 21300000, guid: 07712d514fb55c743a16c31871509ae4, type: 3}
   description: 
-  hungerModifier: 0
-  isRaw: 0
+  needType: 1
+  type: 1
+  hungerModifier: 10
+  isRaw: 1
