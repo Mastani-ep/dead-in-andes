@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9f595bbf6ba5cb44fa9d2262e75c4b82, type: 3}
-  m_Name: new Exploration target
+  m_Name: Crash Site 3
   m_EditorClassIdentifier: 
-  explorationTargetName: Crash Bandicoot
+  explorationTargetName: Crash Bandicoot 3
   defaultExplorationProgress: 100
   Items:
   - Item: {fileID: 11400000, guid: d99c806bb2bd64c4ba1332c04becdb0c, type: 2}

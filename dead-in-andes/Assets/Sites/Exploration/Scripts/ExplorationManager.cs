@@ -16,7 +16,6 @@ public class ExplorationManager : MonoBehaviour
     [SerializeField] private float currentProgress;
     [SerializeField] private Slider explorationProgressSlider;
 
-    // public GameObject 
     private void Awake()
     {
         Instance = this;
@@ -39,13 +38,13 @@ public class ExplorationManager : MonoBehaviour
     {
         currentProgress += explorationTarget.defaultExplorationProgress / 3f;
         explorationProgressSlider.value += explorationTarget.defaultExplorationProgress / 3f;
-        // * HOWmanyPEOPLEareTHEREoutOFthree;
         if (currentProgress >= 100)
         {
             if (exploredSitesCount == explorationTargetList.Count - 1)
             {
                 RandomizeNewSite();
             }
+
             AddItemsToInventory();
             exploredSitesCount++;
             UpdateExplorationScreen();
@@ -56,21 +55,19 @@ public class ExplorationManager : MonoBehaviour
     {
         foreach (var item in explorationTarget.Items)
         {
-            for (int i = 0; i < (item.MinAmount + item.MaxAmount) / 2; i++)
+            for (int i = 0; i < Random.Range(item.MinAmount, item.MaxAmount); i++)
             {
                 InventoryManager.Instance.Add(item.Item);
             }
         }
     }
-    
+
     private void RandomizeNewSite()
     {
-        var chosenSiteType = Random.Range(0, possibleSitesType.Count-1);
-        
+        var chosenSiteType = Random.Range(0, possibleSitesType.Count - 1);
         explorationTargetList.Add(possibleSitesType[chosenSiteType]);
-        
     }
-    
+
     public void ListItems()
     {
         foreach (Transform item in itemContent)
