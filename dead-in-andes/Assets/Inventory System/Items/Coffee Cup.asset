@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Coffee Cup
   m_EditorClassIdentifier: 
   itemName: Coffee Cup
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 697748209, guid: fb19a374d7ff0ce4d8e3aa39932009d9, type: 3}
   description: 
   needType: 2
   type: 2

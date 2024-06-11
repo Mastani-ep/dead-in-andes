@@ -77,8 +77,9 @@ public class InventoryManager : MonoBehaviour
             if (item.Key.needType != NeedType.NotApplicable)
             {
                 itemButton.onClick.AddListener(() => { InteractWithItemInInventory(item.Key, obj); });
+                itemButton.interactable = true;
+                // itemButton.enabled = true;
             }
-            // TODO turn off the button if it's not applicable
         }
     }
 
