@@ -80,6 +80,7 @@ public class ExplorationFinishedUI : MonoBehaviour
             abilityValue.text = character[explorationTarget.usefulSkillType].ToString();
 
             characterButton.onClick.AddListener(() => { ChoseCharacterForExplorationAction(character, explorationTarget); });
+            characterButton.interactable = true;
         }
     }
 
