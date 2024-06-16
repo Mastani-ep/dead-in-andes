@@ -9,7 +9,7 @@ public abstract class ItemObject : ScriptableObject
     [FormerlySerializedAs("name")] public string itemName = "New Item";
     [FormerlySerializedAs("icon")] public Sprite itemIcon;
     [TextArea(15,20)]
-    public string description;
+    public string itemDescription;
     public NeedType needType;
     public ItemType type;
     // public int needChangeModifier = 0;

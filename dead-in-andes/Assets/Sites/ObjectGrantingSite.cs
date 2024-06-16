@@ -1,19 +1,26 @@
+using System;
+using Characters;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class ObjectGrantingSite : Site
 {
     [SerializeField] private ItemObject generatedItem;
-
-    [SerializeField] private string usedAbility;
-    // public InventoryObject inventory;
+    [SerializeField] private SkillType usedAbility;
+    [SerializeField] private int generatedMin;
+    [SerializeField] private int generatedMax;
 
     public override void executeSiteFunctionality()
     {
         if (currentCharacter)
         {
-            InventoryManager.Instance.Add(generatedItem, 1);
-            // TODO Currently only adds one
-            Debug.Log("Generated: " + generatedItem.itemName);
+            int usedAbilityLevel = currentCharacter[usedAbility];
+            int generatedAmount = Random.Range(
+                (int)Math.Round(generatedMin * (usedAbilityLevel / 100f)), 
+                (int)Math.Round(generatedMax  - (generatedMin * (1 - usedAbilityLevel / 100f)))
+                );
+            InventoryManager.Instance.Add(generatedItem, generatedAmount);
+            Debug.Log("Generated " + generatedAmount + "of : " + generatedItem.itemName);
         }
     }
 }

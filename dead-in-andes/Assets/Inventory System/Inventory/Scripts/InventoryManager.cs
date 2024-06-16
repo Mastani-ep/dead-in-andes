@@ -1,7 +1,9 @@
 using System.Collections.Generic;
+using System.Linq;
 using Characters;
 using Inventory;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
@@ -13,8 +15,7 @@ public class InventoryManager : MonoBehaviour
     public GameObject Inventory;
     public GameObject InventoryButton;
     [SerializeField] private Character[] charactersList;
-
-    [SerializeField] private GameObject ItemCharacterInteraction;
+    [SerializeField] private GameObject itemCharacterInteraction;
     [SerializeField] private GameObject characterPrefab;
     [SerializeField] private Transform itemCharacterInteractionContent;
     
@@ -70,6 +71,10 @@ public class InventoryManager : MonoBehaviour
             var itemIcon = obj.transform.Find("ItemIcon").GetComponent<Image>();
 
             Button itemButton = obj.GetComponent<Button>();
+            EventTrigger tooltipEventTrigger = obj.GetComponent<EventTrigger>();
+            
+            AddEventTriggerListener(tooltipEventTrigger, EventTriggerType.PointerEnter, (data) => InventoryTooltip.ShowTooltip_Static(item.Key.itemDescription));
+            AddEventTriggerListener(tooltipEventTrigger, EventTriggerType.PointerExit, (data) => InventoryTooltip.HideTooltip_Static());
             
             itemName.text = item.Key.itemName;
             itemCount.text = item.Value.ToString();
@@ -78,7 +83,6 @@ public class InventoryManager : MonoBehaviour
             {
                 itemButton.onClick.AddListener(() => { InteractWithItemInInventory(item.Key, obj); });
                 itemButton.interactable = true;
-                // itemButton.enabled = true;
             }
         }
     }
@@ -102,7 +106,7 @@ public class InventoryManager : MonoBehaviour
 
     private void InteractWithItemInInventory(ItemObject item, GameObject inventoryItemObject)
     {
-        ItemCharacterInteraction.SetActive(true);
+        itemCharacterInteraction.SetActive(true);
         ListCharacters(item, inventoryItemObject);
     }
     
@@ -129,8 +133,11 @@ public class InventoryManager : MonoBehaviour
             characterIcon.sprite = character.characterImage.sprite;
             abilitySlider.value = character[item.needType];
             abilityValue.text = character[item.needType].ToString();
-
-            characterButton.onClick.AddListener(() => { ItemWithCharacterInteraction(character, item, inventoryItemObject); });
+            if (character[item.needType] > 0)
+            {
+                characterButton.onClick.AddListener(() => { ItemWithCharacterInteraction(character, item, inventoryItemObject); });
+                characterButton.interactable = true;
+            }
         }
     }
 
@@ -144,7 +151,7 @@ public class InventoryManager : MonoBehaviour
         {
             UsableItemInteraction(character, (UsableItemObject)item);
         }
-        ItemCharacterInteraction.SetActive(false);
+        itemCharacterInteraction.SetActive(false);
         
         if (Items[item] > 1)
         {
@@ -160,7 +167,7 @@ public class InventoryManager : MonoBehaviour
 
     private void FoodItemInteraction(Character character, FoodObject item)
     {
-        character[NeedType.Hunger] -= item.hungerModifier;
+        character[NeedType.Hunger] -= Random.Range(item.hungerModifierMin, item.hungerModifierMax);
         if (item.isRaw)
         {
             character[NeedType.Sickness] += Random.Range(0, 5);
@@ -172,10 +179,53 @@ public class InventoryManager : MonoBehaviour
         character[NeedType.Fatigue] -= item.fatigueModifier;
         character[NeedType.Hunger] -= item.hungerModifier;
         character[NeedType.Sickness] -= item.sicknessMeter;
+        character[NeedType.Depression] -= item.depressionMeter;
     }
 
     public void CloseItemInteractionMenu()
     {
-        ItemCharacterInteraction.SetActive(false);
+        itemCharacterInteraction.SetActive(false);
+    }
+    
+    private void AddEventTriggerListener(EventTrigger trigger, EventTriggerType eventType, System.Action<BaseEventData> callback)
+    {
+        EventTrigger.Entry entry = new EventTrigger.Entry { eventID = eventType };
+        entry.callback.AddListener((data) => callback(data));
+        trigger.triggers.Add(entry);
+    }
+
+    public int GetFoodForCookingAmount(int cookingLimit)
+    {
+        // var filteredValues = new Dictionary<FoodObject, int>();
+        int amount = 0;
+        var cumulativeSum = 0;
+
+        foreach (var kvp in Items.ToList())
+        {
+            if (kvp.Key is FoodObject foodObj && foodObj.isRaw)
+            {
+                if (cumulativeSum + kvp.Value <= cookingLimit)
+                {
+                    // filteredValues.Add(foodObj, kvp.Value);
+                    amount += kvp.Value;
+                    Items.Remove(kvp.Key);
+                    cumulativeSum += kvp.Value;
+                }
+                else if (cumulativeSum < cookingLimit)
+                {
+                    // filteredValues.Add(foodObj, cookingLimit - cumulativeSum);
+                    amount += cookingLimit - cumulativeSum;
+                    Items[kvp.Key] -= cookingLimit - cumulativeSum;
+                    cumulativeSum = cookingLimit;
+                }
+            }
+        }
+
+        return amount;
+        // return filteredValues;
+        
+        // return Items
+        //     .Where(kvp => kvp.Key is FoodObject foodObj && foodObj.isRaw)
+        //     .ToDictionary(kvp => (FoodObject)kvp.Key, kvp => kvp.Value);
     }
 }

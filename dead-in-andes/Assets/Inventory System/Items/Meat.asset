@@ -14,8 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Meat
   itemIcon: {fileID: 21300000, guid: 07712d514fb55c743a16c31871509ae4, type: 3}
-  description: 
+  itemDescription: 'Meat
+
+    Decreases hunger by 6-12 when used, can cause sickness'
   needType: 1
   type: 1
-  hungerModifier: 10
+  hungerModifierMin: 6
+  hungerModifierMax: 12
   isRaw: 1

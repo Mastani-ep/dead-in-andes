@@ -5,4 +5,5 @@ public class UsableItemObject : ItemObject
     public int hungerModifier;
     public int fatigueModifier;
     public int sicknessMeter;
+    public int depressionMeter;
 }

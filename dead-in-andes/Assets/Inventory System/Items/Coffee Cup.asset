@@ -14,9 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Coffee Cup
   itemIcon: {fileID: 697748209, guid: fb19a374d7ff0ce4d8e3aa39932009d9, type: 3}
-  description: 
+  itemDescription: 'Coffee Cup
+
+    Decreases Fatigue and Depression by 10 when used'
   needType: 2
   type: 2
   hungerModifier: 0
-  fatigueModifier: 15
+  fatigueModifier: 10
   sicknessMeter: 0
+  depressionMeter: 10

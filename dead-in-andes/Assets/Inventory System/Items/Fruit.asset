@@ -14,8 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Fruit
   itemIcon: {fileID: 21300000, guid: d447c0eb5fefbf9488795b6f87d6a7a1, type: 3}
-  description: 
+  itemDescription: 'Fruit
+
+    Decreases hunger by 5 when used'
   needType: 1
   type: 1
-  hungerModifier: 5
+  hungerModifierMin: 5
+  hungerModifierMax: 5
   isRaw: 0
