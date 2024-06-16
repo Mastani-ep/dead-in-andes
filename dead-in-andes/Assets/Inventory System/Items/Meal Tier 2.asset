@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Meal Tier 2
   m_EditorClassIdentifier: 
   itemName: Meal
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: dcdbafbe82e94874eb5a0eb70f112421, type: 3}
   itemDescription: 'Meal
 
     Decreases hunger by 10-20 when used'

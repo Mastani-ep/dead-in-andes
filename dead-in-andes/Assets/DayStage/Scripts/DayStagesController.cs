@@ -59,7 +59,7 @@ public class DayStagesController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && GameManager.Instance.LockedParallaxScrolling == 0)
         {
             ChangeDayStage();
             Debug.Log(_dayStage);
