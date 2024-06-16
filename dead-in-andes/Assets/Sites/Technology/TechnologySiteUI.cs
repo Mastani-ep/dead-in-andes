@@ -24,7 +24,7 @@ public class TechnologySiteUI : MonoBehaviour
         technologyName.text = "COMPLETED";
     }
 
-    public void IncreaseResearchSliderProgress(int researchProgress)
+    public void IncreaseResearchSliderProgress(float researchProgress)
     {
         technologyProgressSlider.value += researchProgress;
     }

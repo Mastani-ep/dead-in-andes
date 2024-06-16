@@ -5,6 +5,8 @@ using UnityEngine.Serialization;
 public class Character : MonoBehaviour
 {
     [FormerlySerializedAs("_name")] [SerializeField] public string characterName = "lol";
+    [TextArea(15,20)]
+    public string characterDescription;
     [SerializeField] private bool alive = true;
     public SpriteRenderer characterImage;
     // [SerializeField] public Sprite characterSprite;
@@ -25,6 +27,7 @@ public class Character : MonoBehaviour
     [SerializeField] public int knowledge;
     [SerializeField] public int craftsmanship;
     [SerializeField] public int exploration;
+    [SerializeField] public int constitution;
 
     
     public int this[SkillType skillType]
@@ -41,6 +44,7 @@ public class Character : MonoBehaviour
                 SkillType.Knowledge => knowledge,
                 SkillType.Craftsmanship => craftsmanship,
                 SkillType.Exploration => exploration,
+                SkillType.Constitution => constitution,
             };
         }
     }

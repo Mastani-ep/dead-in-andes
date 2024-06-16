@@ -1,4 +1,5 @@
-using System.Net.Mime;
+using System.Collections.Generic;
+using Characters;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -31,9 +32,29 @@ public class CharacterScreenUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI depressionPercentageValue;
     [SerializeField] private TextMeshProUGUI injuryPercentageValue;
 
+    [Header("Skills Screen")]
+    [SerializeField] private Slider constitutionSlider;
+    [SerializeField] private Slider conversationSlider;
+    [SerializeField] private Slider knowledgeSlider;
+    [SerializeField] private Slider gatheringSlider;
+    [SerializeField] private Slider craftingSlider;
+    [SerializeField] private Slider exploringSlider;
+    [SerializeField] private Slider cookingSlider;
+    [SerializeField] private Slider huntingSlider;
+    [SerializeField] private Slider fishingSlider;
+    
+    [SerializeField] private TextMeshProUGUI constitutionPercentageValue;
+    [SerializeField] private TextMeshProUGUI conversationPercentageValue;
+    [SerializeField] private TextMeshProUGUI knowledgePercentageValue;
+    [SerializeField] private TextMeshProUGUI gatheringPercentageValue;
+    [SerializeField] private TextMeshProUGUI craftingPercentageValue;
+    [SerializeField] private TextMeshProUGUI exploringPercentageValue;
+    [SerializeField] private TextMeshProUGUI cookingPercentageValue;
+    [SerializeField] private TextMeshProUGUI huntingPercentageValue;
+    [SerializeField] private TextMeshProUGUI fishingPercentageValue;
+    
     [Header("Generel UI variables")] 
-    [SerializeField] private Gradient sliderGradient;
-    // [Header("Skills Screen")]
+    [SerializeField] private Gradient needsSliderGradient;
     
     void Start()
     {
@@ -69,6 +90,12 @@ public class CharacterScreenUI : MonoBehaviour
 
     private void ReloadScreens()
     {
+        var character = charactersList[currentCharacter];
+        
+        characterName.text = character.characterName;
+        characterSprite.sprite = charactersList[currentCharacter].GetComponent<SpriteRenderer>().sprite;
+        characterBiography.text = character.characterDescription;
+        
         ReloadGeneralScreen();
         ReloadSkillsScreen();
     }
@@ -76,31 +103,49 @@ public class CharacterScreenUI : MonoBehaviour
     private void ReloadGeneralScreen()
     {
         var character = charactersList[currentCharacter];
-        characterName.text = character.characterName;
-        characterSprite.sprite = charactersList[currentCharacter].GetComponent<SpriteRenderer>().sprite;
-        // characterBiography.text = 
 
-        hungerSlider.value = character.hungerMeter;
-        hungerSlider.fillRect.GetComponent<Image>().color = sliderGradient.Evaluate(character.hungerMeter/100f);
-        fatigueSlider.value = character.fatigueMeter;
-        fatigueSlider.fillRect.GetComponent<Image>().color = sliderGradient.Evaluate(character.fatigueMeter/100f);
-        sicknessSlider.value = character.sicknessMeter;
-        sicknessSlider.fillRect.GetComponent<Image>().color = sliderGradient.Evaluate(character.sicknessMeter/100f);
-        depressionSlider.value = character.depressionMeter;
-        depressionSlider.fillRect.GetComponent<Image>().color = sliderGradient.Evaluate(character.depressionMeter/100f);
-        injurySlider.value = character.injuryMeter;
-        injurySlider.fillRect.GetComponent<Image>().color = sliderGradient.Evaluate(character.injuryMeter/100f);
+        hungerSlider.value = character[NeedType.Hunger];
+        hungerSlider.fillRect.GetComponent<Image>().color = needsSliderGradient.Evaluate(character.hungerMeter/100f);
+        fatigueSlider.value = character[NeedType.Fatigue];
+        fatigueSlider.fillRect.GetComponent<Image>().color = needsSliderGradient.Evaluate(character.fatigueMeter/100f);
+        sicknessSlider.value = character[NeedType.Sickness];
+        sicknessSlider.fillRect.GetComponent<Image>().color = needsSliderGradient.Evaluate(character.sicknessMeter/100f);
+        depressionSlider.value = character[NeedType.Depression];
+        depressionSlider.fillRect.GetComponent<Image>().color = needsSliderGradient.Evaluate(character.depressionMeter/100f);
+        injurySlider.value = character[NeedType.Injury];
+        injurySlider.fillRect.GetComponent<Image>().color = needsSliderGradient.Evaluate(character.injuryMeter/100f);
 
-        hungerPercentageValue.text = character.hungerMeter + " %";
-        fatiguePercentageValue.text = character.fatigueMeter + " %";
-        sicknessPercentageValue.text = character.sicknessMeter + " %";
-        depressionPercentageValue.text = character.depressionMeter + " %";
-        injuryPercentageValue.text = character.injuryMeter + " %";
+        hungerPercentageValue.text = character[NeedType.Hunger] + " %";
+        fatiguePercentageValue.text = character[NeedType.Fatigue] + " %";
+        sicknessPercentageValue.text = character[NeedType.Sickness] + " %";
+        depressionPercentageValue.text = character[NeedType.Depression] + " %";
+        injuryPercentageValue.text = character[NeedType.Injury] + " %";
     }
 
     private void ReloadSkillsScreen()
     {
-        //
+        var character = charactersList[currentCharacter];
+     
+        constitutionSlider.value = character[SkillType.Constitution];
+        conversationSlider.value = character[SkillType.Communication];
+        knowledgeSlider.value = character[SkillType.Knowledge];
+        gatheringSlider.value = character[SkillType.Gathering];
+        craftingSlider.value = character[SkillType.Craftsmanship];
+        exploringSlider.value = character[SkillType.Exploration];
+        cookingSlider.value = character[SkillType.Cooking];
+        huntingSlider.value = character[SkillType.Hunting];
+        fishingSlider.value = character[SkillType.Fishing];
+        
+        constitutionPercentageValue.text = character[SkillType.Constitution] + " %";
+        conversationPercentageValue.text = character[SkillType.Communication] + " %";
+        knowledgePercentageValue.text = character[SkillType.Knowledge] + " %";
+        gatheringPercentageValue.text = character[SkillType.Gathering] + " %";
+        craftingPercentageValue.text = character[SkillType.Craftsmanship] + " %";
+        exploringPercentageValue.text = character[SkillType.Exploration] + " %";
+        cookingPercentageValue.text = character[SkillType.Cooking] + " %";
+        huntingPercentageValue.text = character[SkillType.Hunting] + " %";
+        fishingPercentageValue.text = character[SkillType.Fishing] + " %";
+        
     }
     
     public void OpenCharacterScreen()

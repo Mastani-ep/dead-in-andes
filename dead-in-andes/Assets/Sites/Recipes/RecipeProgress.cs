@@ -25,7 +25,7 @@ using System;
 public class RecipeProgress
 {
     public Recipe recipe;
-    public int progress;
+    public float progress;
     public bool isDone;
     public bool isSelected;
 

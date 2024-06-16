@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Characters;
 using DefaultNamespace;
 using UnityEngine;
 
@@ -88,10 +89,11 @@ public class Workshop : Site
         if (currentCharacter && currentRecipe != -1)
         {
             Recipe recipe = UnlockedRecipes[currentRecipe].recipe;
-            // It is important to add some modificator for default progress later based on i.e. character stats
             if (CheckAndValidateRecipeRequirements(currentRecipe))
             {
-                UnlockedRecipes[currentRecipe].progress += recipe.DefaultBuildProgress;
+                float progress = (recipe.DefaultResearchProgress) *
+                                 (1f + 1f * (currentCharacter[SkillType.Craftsmanship] / 100f));
+                UnlockedRecipes[currentRecipe].progress += progress;
                 Debug.Log("Workshop progress on: " + recipe + "is:" + UnlockedRecipes[currentRecipe]);
                 if (UnlockedRecipes[currentRecipe].progress >= 100)
                 {

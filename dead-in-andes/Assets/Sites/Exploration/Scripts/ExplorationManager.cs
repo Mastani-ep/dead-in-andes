@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Linq;
+using Characters;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -16,7 +18,9 @@ public class ExplorationManager : MonoBehaviour
     [SerializeField] private float currentProgress;
     [SerializeField] private Slider explorationProgressSlider;
     [SerializeField] private ExplorationFinishedUI explorationFinishedUI;
-
+    private List<ExplorationTarget> exploredSites = new List<ExplorationTarget>();
+    private float additionalProgress = 0;
+    
     private void Awake()
     {
         Instance = this;
@@ -35,23 +39,42 @@ public class ExplorationManager : MonoBehaviour
     }
 
 
-    public void ProgressExploration()
+    public void ProgressExploration(Character currentCharacter)
     {
-        currentProgress += explorationTarget.defaultExplorationProgress / 3f;
-        explorationProgressSlider.value += explorationTarget.defaultExplorationProgress / 3f;
+        float progress = (explorationTarget.defaultExplorationProgress) *
+                         (1f + 1f * (currentCharacter[SkillType.Exploration] / 100f));
+        currentProgress += progress;
         if (currentProgress >= 100)
         {
+            additionalProgress = currentProgress - 100;
             if (exploredSitesCount == explorationTargetList.Count - 1)
             {
                 RandomizeNewSite();
             }
-
-            explorationFinishedUI.UpdateExplorationFinishedScreen(explorationTarget);
+            exploredSites.Add(explorationTarget);
             exploredSitesCount++;
             UpdateExplorationScreen();
+            
+            currentProgress = additionalProgress;
+            explorationProgressSlider.value = currentProgress;
+            additionalProgress = 0;
+        }
+
+    }
+
+    public void EvaluateExploration()
+    {
+        if (exploredSites.Any())
+        {
+            explorationFinishedUI.UpdateExplorationFinishedScreen(exploredSites);
         }
     }
 
+    public void ClearExploredSites()
+    {
+        exploredSites.Clear();
+    }
+    
     private void RandomizeNewSite()
     {
         var chosenSiteType = Random.Range(0, possibleSitesType.Count - 1);

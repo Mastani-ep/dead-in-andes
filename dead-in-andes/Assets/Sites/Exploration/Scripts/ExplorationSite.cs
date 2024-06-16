@@ -8,7 +8,7 @@ public class ExplorationSite : Site
     {
         if (currentCharacter)
         {
-            explorationManager.ProgressExploration();
+            explorationManager.ProgressExploration(currentCharacter);
         }
     }
 }

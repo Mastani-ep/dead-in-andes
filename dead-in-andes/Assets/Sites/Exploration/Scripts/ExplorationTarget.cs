@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Characters;
 using UnityEngine;
@@ -7,7 +6,7 @@ using UnityEngine;
 public class ExplorationTarget : ScriptableObject
 {
     public string explorationTargetName = "New exploration site";
-    public int defaultExplorationProgress = 50;
+    public float defaultExplorationProgress = 50;
     public List<ExplorationTargetObject> Items = new();
     public SkillType usefulSkillType;
 }

@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Fish Site
   m_EditorClassIdentifier: 
   explorationTargetName: Fish Lake
-  defaultExplorationProgress: 100
+  defaultExplorationProgress: 33.3
   Items:
   - Item: {fileID: 11400000, guid: d8875255a8764c946b74dcc425da690d, type: 2}
     MinAmount: 2
     MaxAmount: 7
+  usefulSkillType: 0

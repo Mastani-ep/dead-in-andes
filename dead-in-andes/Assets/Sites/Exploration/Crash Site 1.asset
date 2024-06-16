@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Crash Site 1
   m_EditorClassIdentifier: 
   explorationTargetName: Crash Bandicoot 1
-  defaultExplorationProgress: 100
+  defaultExplorationProgress: 33.3
   Items:
   - Item: {fileID: 11400000, guid: d99c806bb2bd64c4ba1332c04becdb0c, type: 2}
     MinAmount: 2
@@ -24,3 +24,4 @@ MonoBehaviour:
   - Item: {fileID: 11400000, guid: 5716e3015faa58440835b776e2f9ccde, type: 2}
     MinAmount: 0
     MaxAmount: 2
+  usefulSkillType: 0

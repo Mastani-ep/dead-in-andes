@@ -9,6 +9,7 @@ public class DayStagesController : MonoBehaviour
     [SerializeField] private int _dayCounter = 0;
     [SerializeField] private Character[] _characters_list;
     [SerializeField] private Site[] allSites;
+    [SerializeField] private ExplorationSiteManager explorationSiteManager;
     
     void ChangeDayStage()
     {
@@ -19,6 +20,7 @@ public class DayStagesController : MonoBehaviour
                 {
                     site.executeSiteFunctionality();
                 }
+                explorationSiteManager.EvaluateExploration();
                 _dayStage = DayStage.Afternoon;
                 break;
             case DayStage.Afternoon:
@@ -26,6 +28,7 @@ public class DayStagesController : MonoBehaviour
                 {
                     site.executeSiteFunctionality();
                 }
+                explorationSiteManager.EvaluateExploration();
                 _dayStage = DayStage.Evening;
                 break;
             case DayStage.Evening:

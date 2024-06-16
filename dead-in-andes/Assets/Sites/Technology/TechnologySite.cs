@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Characters;
 using UnityEngine;
 
 public class TechnologySite : Site
@@ -33,8 +34,11 @@ public class TechnologySite : Site
 
         var recipe = technologyRecipeList[currentTechnology].recipe;
         
-        technologyRecipeList[currentTechnology].progress += recipe.DefaultResearchProgress;
-        technologySiteUI.IncreaseResearchSliderProgress(recipe.DefaultResearchProgress);
+        float progress = (recipe.DefaultResearchProgress) *
+                             (1f + 1f * (currentCharacter[SkillType.Knowledge] / 100f));
+            
+        technologyRecipeList[currentTechnology].progress += progress;
+        technologySiteUI.IncreaseResearchSliderProgress(progress);
         
         if (technologyRecipeList[currentTechnology].progress >= 100)
         {

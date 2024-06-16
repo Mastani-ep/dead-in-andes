@@ -1,9 +1,13 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
 public class ExplorationFinishedUI : MonoBehaviour
 {
+    [SerializeField] private ExplorationManager explorationManager;
+
     [Header("Exploration Choice Screen")]
     [SerializeField] private Character[] charactersList;
     [SerializeField] private GameObject characterPrefab;
@@ -17,21 +21,29 @@ public class ExplorationFinishedUI : MonoBehaviour
     [Header("Exploration Finished Screen")]
     [SerializeField] private GameObject explorationPopupScreen;
     [SerializeField] private Transform itemPopupContent;
-    
+    private List<ExplorationTarget> sitesExplored;
     
     void OnEnable()
     {
         charactersList = Object.FindObjectsOfType<Character>();
     }
 
-    public void UpdateExplorationFinishedScreen(ExplorationTarget explorationTarget)
+    public void UpdateExplorationFinishedScreen(List<ExplorationTarget> exploredSites)
     {
+        sitesExplored = exploredSites;
         explorationFinishedScreen.SetActive(true);
+        UpdateExplorationFinishedScreenIterate();
+    }
+
+    private void UpdateExplorationFinishedScreenIterate()
+    {
         GameManager.Instance.IncreaseLockingInteractionCount();
+        var explorationTarget = sitesExplored[0];
+        sitesExplored.RemoveAt(0);
         ListItems(explorationTarget);
         ListCharacters(explorationTarget);
     }
-
+    
     private void ListItems(ExplorationTarget explorationTarget)
     {
         foreach (Transform item in itemContent)
@@ -45,8 +57,8 @@ public class ExplorationFinishedUI : MonoBehaviour
         foreach (var item in explorationTarget.Items)
         {
             GameObject obj = Instantiate(explorationItem, itemContent);
-            var itemName = obj.transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>();
-            var itemCount = obj.transform.Find("ItemCount").GetComponent<TMPro.TextMeshProUGUI>();
+            var itemName = obj.transform.Find("ItemName").GetComponent<TextMeshProUGUI>();
+            var itemCount = obj.transform.Find("ItemCount").GetComponent<TextMeshProUGUI>();
             var itemIcon = obj.transform.Find("ItemIcon").GetComponent<Image>();
 
             itemName.text = item.Item.itemName;
@@ -65,11 +77,11 @@ public class ExplorationFinishedUI : MonoBehaviour
         foreach (var character in charactersList)
         {
             GameObject obj = Instantiate(characterPrefab, characterContent);
-            var characterName = obj.transform.Find("CharacterName").GetComponent<TMPro.TextMeshProUGUI>();
-            var abilityDisplayed = obj.transform.Find("AbilityDisplayed").GetComponent<TMPro.TextMeshProUGUI>();
+            var characterName = obj.transform.Find("CharacterName").GetComponent<TextMeshProUGUI>();
+            var abilityDisplayed = obj.transform.Find("AbilityDisplayed").GetComponent<TextMeshProUGUI>();
             var characterIcon = obj.transform.Find("CharacterIcon").GetComponent<Image>();
             var abilitySlider = obj.transform.Find("AbilityValues/AbilitySlider").GetComponent<Slider>();
-            var abilityValue = obj.transform.Find("AbilityValues/AbilityValueText").GetComponent<TMPro.TextMeshProUGUI>();
+            var abilityValue = obj.transform.Find("AbilityValues/AbilityValueText").GetComponent<TextMeshProUGUI>();
             
             Button characterButton = obj.GetComponent<Button>();
 
@@ -87,7 +99,15 @@ public class ExplorationFinishedUI : MonoBehaviour
     private void ChoseCharacterForExplorationAction(Character character, ExplorationTarget explorationTarget)
     {
         AddItemsToInventoryAndPreparePopup(explorationTarget, character[explorationTarget.usefulSkillType]);
-        explorationFinishedScreen.SetActive(false);
+        if (sitesExplored.Any())
+        {
+            UpdateExplorationFinishedScreenIterate();
+        }
+        else
+        {
+            explorationManager.ClearExploredSites();
+            explorationFinishedScreen.SetActive(false);
+        }
     }
     
     
@@ -105,8 +125,8 @@ public class ExplorationFinishedUI : MonoBehaviour
             InventoryManager.Instance.Add(item.Item, itemsAdded);
             
             GameObject obj = Instantiate(explorationItem, itemPopupContent);
-            var itemName = obj.transform.Find("ItemName").GetComponent<TMPro.TextMeshProUGUI>();
-            var itemCount = obj.transform.Find("ItemCount").GetComponent<TMPro.TextMeshProUGUI>();
+            var itemName = obj.transform.Find("ItemName").GetComponent<TextMeshProUGUI>();
+            var itemCount = obj.transform.Find("ItemCount").GetComponent<TextMeshProUGUI>();
             var itemIcon = obj.transform.Find("ItemIcon").GetComponent<Image>();
 
             itemName.text = item.Item.itemName;

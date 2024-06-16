@@ -40,7 +40,6 @@ public class Site : MonoBehaviour
     
     public void playFlashingAnimation()
     {
-        Debug.Log("aaaaaaaaaaa");
         animator.Play("Flashing");
     }
     

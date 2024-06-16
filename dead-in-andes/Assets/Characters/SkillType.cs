@@ -9,6 +9,7 @@
         Communication,
         Knowledge,
         Craftsmanship,
-        Exploration
+        Exploration,
+        Constitution
     }
 }

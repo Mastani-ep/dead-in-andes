@@ -4,6 +4,6 @@ using System;
 public class TechnologyProgress
 {
     public Recipe recipe;
-    public int progress;
+    public float progress;
     public bool isDone;
 }

@@ -19,8 +19,11 @@ public class ObjectGrantingSite : Site
                 (int)Math.Round(generatedMin * (usedAbilityLevel / 100f)), 
                 (int)Math.Round(generatedMax  - (generatedMin * (1 - usedAbilityLevel / 100f)))
                 );
-            InventoryManager.Instance.Add(generatedItem, generatedAmount);
-            Debug.Log("Generated " + generatedAmount + "of : " + generatedItem.itemName);
+            if (generatedAmount > 0)
+            {
+                InventoryManager.Instance.Add(generatedItem, generatedAmount);
+            }
+            Debug.Log("Generated " + generatedAmount + " of : " + generatedItem.itemName);
         }
     }
 }
