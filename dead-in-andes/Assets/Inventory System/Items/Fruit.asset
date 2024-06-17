@@ -12,13 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6b97fd7e37cd94469be4f5ecd3ffeab, type: 3}
   m_Name: Fruit
   m_EditorClassIdentifier: 
-  itemName: Fruit
+  itemName: "Morti\xF1o"
   itemIcon: {fileID: 21300000, guid: d447c0eb5fefbf9488795b6f87d6a7a1, type: 3}
-  itemDescription: 'Fruit
-
-    Decreases hunger by 5 when used'
+  itemDescription: "Morti\xF1o (Andean blueberry)\n\nSmall, round fruit that grows
+    in the high-altitude regions of the Andes Mountains\nMorti\xF1o berries are known
+    for their tart flavor, which is reminiscent of blueberries, \nbut with a slightly
+    more acidic tang\n\nDecreases hunger by 5 when used"
   needType: 1
   type: 1
+  generatedMin: 3
+  generatedMax: 7
   hungerModifierMin: 5
   hungerModifierMax: 5
   isRaw: 0

@@ -28,7 +28,16 @@ public class Character : MonoBehaviour
     [SerializeField] public int craftsmanship;
     [SerializeField] public int exploration;
     [SerializeField] public int constitution;
+    [SerializeField] public int strength;
 
+    // Start is called before the first frame update
+    void Start()
+    {
+        if (!characterImage)
+        {
+            characterImage = GetComponent<SpriteRenderer>();
+        }
+    }
     
     public int this[SkillType skillType]
     {
@@ -45,10 +54,46 @@ public class Character : MonoBehaviour
                 SkillType.Craftsmanship => craftsmanship,
                 SkillType.Exploration => exploration,
                 SkillType.Constitution => constitution,
+                SkillType.Strength => strength,
             };
         }
+        set
+        {
+            switch (skillType)
+            {
+                case SkillType.Gathering:
+                    gathering = value;
+                    break;
+                case SkillType.Hunting:
+                    hunting = value;
+                    break;
+                case SkillType.Fishing:
+                    fishing = value;
+                    break;
+                case SkillType.Cooking:
+                    cooking = value;
+                    break;
+                case SkillType.Communication:
+                    communication = value;
+                    break;
+                case SkillType.Knowledge:
+                    knowledge = value;
+                    break;
+                case SkillType.Craftsmanship:
+                    craftsmanship = value;
+                    break;
+                case SkillType.Exploration:
+                    exploration = value;
+                    break;
+                case SkillType.Constitution:
+                    constitution = value;
+                    break;
+                case SkillType.Strength:
+                    strength = value;
+                    break;
+            }
+        }
     }
-    
     
     public int this[NeedType needType]
     {
@@ -99,23 +144,5 @@ public class Character : MonoBehaviour
                 alive = false;
             }
         }
-    }
-    
-    
-    // [SerializeField] private string _sex;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        if (!characterImage)
-        {
-            characterImage = GetComponent<SpriteRenderer>();
-        }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

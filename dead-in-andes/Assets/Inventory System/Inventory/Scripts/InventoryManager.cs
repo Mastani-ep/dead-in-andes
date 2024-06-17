@@ -178,8 +178,9 @@ public class InventoryManager : MonoBehaviour
     {
         character[NeedType.Fatigue] -= item.fatigueModifier;
         character[NeedType.Hunger] -= item.hungerModifier;
-        character[NeedType.Sickness] -= item.sicknessMeter;
-        character[NeedType.Depression] -= item.depressionMeter;
+        character[NeedType.Sickness] -= item.sicknessModifier;
+        character[NeedType.Depression] -= item.depressionModifier;
+        character[NeedType.Injury] -= item.injuryModifier;
     }
 
     public void CloseItemInteractionMenu()

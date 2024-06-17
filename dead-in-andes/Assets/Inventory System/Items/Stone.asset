@@ -16,6 +16,9 @@ MonoBehaviour:
   itemIcon: {fileID: 21300000, guid: c6d904be2a1bd864f8a6a577a314e773, type: 3}
   itemDescription: 'Stone
 
+
     Used for construction purposes'
   needType: 0
   type: 0
+  generatedMin: 1
+  generatedMax: 3

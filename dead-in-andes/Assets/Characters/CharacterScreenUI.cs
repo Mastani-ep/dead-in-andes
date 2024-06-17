@@ -42,6 +42,7 @@ public class CharacterScreenUI : MonoBehaviour
     [SerializeField] private Slider cookingSlider;
     [SerializeField] private Slider huntingSlider;
     [SerializeField] private Slider fishingSlider;
+    [SerializeField] private Slider strengthSlider;
     
     [SerializeField] private TextMeshProUGUI constitutionPercentageValue;
     [SerializeField] private TextMeshProUGUI conversationPercentageValue;
@@ -52,8 +53,9 @@ public class CharacterScreenUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI cookingPercentageValue;
     [SerializeField] private TextMeshProUGUI huntingPercentageValue;
     [SerializeField] private TextMeshProUGUI fishingPercentageValue;
+    [SerializeField] private TextMeshProUGUI strengthPercentageValue;
     
-    [Header("Generel UI variables")] 
+    [Header("General UI variables")] 
     [SerializeField] private Gradient needsSliderGradient;
     
     void Start()
@@ -135,6 +137,7 @@ public class CharacterScreenUI : MonoBehaviour
         cookingSlider.value = character[SkillType.Cooking];
         huntingSlider.value = character[SkillType.Hunting];
         fishingSlider.value = character[SkillType.Fishing];
+        strengthSlider.value = character[SkillType.Strength];
         
         constitutionPercentageValue.text = character[SkillType.Constitution] + " %";
         conversationPercentageValue.text = character[SkillType.Communication] + " %";
@@ -145,6 +148,7 @@ public class CharacterScreenUI : MonoBehaviour
         cookingPercentageValue.text = character[SkillType.Cooking] + " %";
         huntingPercentageValue.text = character[SkillType.Hunting] + " %";
         fishingPercentageValue.text = character[SkillType.Fishing] + " %";
+        strengthPercentageValue.text = character[SkillType.Strength] + " %";
         
     }
     

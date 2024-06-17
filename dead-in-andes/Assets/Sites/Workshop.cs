@@ -102,6 +102,7 @@ public class Workshop : Site
                     CreateStationFromRecipe(recipe);
                 }
             }
+            ApplySkillsAndNeedsChanges();
         }
     }
 

@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35aaf54ecde17534b9d57155208cec70, type: 3}
+  m_Name: Injury Plant
+  m_EditorClassIdentifier: 
+  itemName: Sangre de Drago
+  itemIcon: {fileID: 21300000, guid: 18460ff97e7eb094f842033c47e6cd6d, type: 3}
+  itemDescription: "Sangre de Drago\n\nThe sap, known as Dragon\u2019s Blood, is
+    widely used for its wound-healing properties\nIt is applied directly to wounds
+    to stop bleeding, promote healing, and reduce inflammation\n\nReduces injury
+    up to 10"
+  needType: 4
+  type: 2
+  generatedMin: 0
+  generatedMax: 2
+  hungerModifier: 0
+  fatigueModifier: 0
+  sicknessModifier: 0
+  depressionModifier: 0
+  injuryModifier: 10

@@ -16,9 +16,12 @@ MonoBehaviour:
   itemIcon: {fileID: 21300000, guid: dcdbafbe82e94874eb5a0eb70f112421, type: 3}
   itemDescription: 'Meal
 
+
     Decreases hunger by 10-20 when used'
   needType: 1
   type: 1
+  generatedMin: 0
+  generatedMax: 0
   hungerModifierMin: 10
   hungerModifierMax: 20
   isRaw: 0

@@ -41,6 +41,8 @@ public class CookingSite : Site
                 inventoryManager.Add(mealMedium, meal2);
             if (meal3 != 0)
                 inventoryManager.Add(mealStrong, meal3);
+            
+            ApplySkillsAndNeedsChanges();
         }
     }
 }

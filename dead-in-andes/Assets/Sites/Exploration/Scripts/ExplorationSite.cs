@@ -9,6 +9,7 @@ public class ExplorationSite : Site
         if (currentCharacter)
         {
             explorationManager.ProgressExploration(currentCharacter);
+            ApplySkillsAndNeedsChanges();
         }
     }
 }

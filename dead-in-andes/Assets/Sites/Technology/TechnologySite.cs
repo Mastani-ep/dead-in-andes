@@ -54,6 +54,7 @@ public class TechnologySite : Site
         if (currentCharacter)
         {
             ProgressCurrentTechnology();
+            ApplySkillsAndNeedsChanges();
         }
     }
 }

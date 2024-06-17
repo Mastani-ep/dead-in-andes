@@ -12,5 +12,7 @@ public abstract class ItemObject : ScriptableObject
     public string itemDescription;
     public NeedType needType;
     public ItemType type;
+    [SerializeField] public int generatedMin;
+    [SerializeField] public int generatedMax;
     // public int needChangeModifier = 0;
 }

@@ -21,6 +21,7 @@ public class DayStagesController : MonoBehaviour
                     site.executeSiteFunctionality();
                 }
                 explorationSiteManager.EvaluateExploration();
+                CampfireManager.Instance.EvaluateImpactOnCharacters();
                 _dayStage = DayStage.Afternoon;
                 break;
             case DayStage.Afternoon:
@@ -29,6 +30,7 @@ public class DayStagesController : MonoBehaviour
                     site.executeSiteFunctionality();
                 }
                 explorationSiteManager.EvaluateExploration();
+                CampfireManager.Instance.EvaluateImpactOnCharacters();
                 _dayStage = DayStage.Evening;
                 break;
             case DayStage.Evening:

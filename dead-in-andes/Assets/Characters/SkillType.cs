@@ -10,6 +10,7 @@
         Knowledge,
         Craftsmanship,
         Exploration,
-        Constitution
+        Constitution,
+        Strength
     }
 }

@@ -1,9 +1,9 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
+using Characters;
 using DefaultNamespace;
+using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.EventSystems;
+using Random = UnityEngine.Random;
 
 public class Site : MonoBehaviour
 {
@@ -11,6 +11,8 @@ public class Site : MonoBehaviour
     [SerializeField] protected Character currentCharacter;
     [SerializeField] private GameObject connectedObject;
     public Character CurrentCharacter => currentCharacter;
+    [SerializeField] private SkillType usefulSkillType;
+    [SerializeField] private List<NeedType> needTypesImpacted;
 
     public SiteType SiteType => _site_type;
 
@@ -76,6 +78,25 @@ public class Site : MonoBehaviour
         // Debug.Log("This should never happen");
     }
 
+    public void ApplySkillsAndNeedsChanges()
+    {
+        ApplySkillImprovement();
+        ApplyNeedsIncreases();
+    }
+    
+    public void ApplySkillImprovement()
+    {
+        currentCharacter[usefulSkillType] = Mathf.Clamp(currentCharacter[usefulSkillType] + Random.Range(1, 3), 0, 100);
+    }
+
+    public void ApplyNeedsIncreases()
+    {
+        foreach (var needType in needTypesImpacted)
+        {
+            currentCharacter[needType] = Mathf.Clamp(currentCharacter[needType] + Random.Range(5, 15), 0, 100);
+        }
+    }
+    
     public void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Entering " + gameObject.name);
