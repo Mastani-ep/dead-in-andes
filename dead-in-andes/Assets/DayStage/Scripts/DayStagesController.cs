@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using DefaultNamespace;
 using UnityEngine;
 
@@ -47,7 +48,7 @@ public class DayStagesController : MonoBehaviour
         {
             character.NextDayChanges();
         }
-        
+        _characters_list = _characters_list.Where(character => character.alive).ToArray();
     }
     
     // Start is called before the first frame update

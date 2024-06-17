@@ -25,11 +25,12 @@ public class ExplorationFinishedUI : MonoBehaviour
     
     void OnEnable()
     {
-        charactersList = Object.FindObjectsOfType<Character>();
+        charactersList = Object.FindObjectsOfType<Character>().Where(character => character.alive).ToArray();
     }
 
     public void UpdateExplorationFinishedScreen(List<ExplorationTarget> exploredSites)
     {
+        charactersList = Object.FindObjectsOfType<Character>().Where(character => character.alive).ToArray();
         sitesExplored = exploredSites;
         explorationFinishedScreen.SetActive(true);
         UpdateExplorationFinishedScreenIterate();

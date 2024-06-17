@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Characters;
@@ -5,6 +6,8 @@ using Inventory;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using Object = UnityEngine.Object;
+using Random = UnityEngine.Random;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -26,8 +29,7 @@ public class InventoryManager : MonoBehaviour
 
     void OnEnable()
     {
-        charactersList = Object.FindObjectsOfType<Character>();
-        // TODO I don't know if it will ever update and if so if it won't update too much
+        charactersList = Object.FindObjectsOfType<Character>().Where(character => character.alive).ToArray();
     }
     
     public void Add(ItemObject item, int count)
@@ -97,6 +99,7 @@ public class InventoryManager : MonoBehaviour
         }
         else
         {
+            charactersList = Object.FindObjectsOfType<Character>().Where(character => character.alive).ToArray();
             GameManager.Instance.IncreaseLockingInteractionCount();
             Inventory.SetActive(true);
             InventoryButton.SetActive(false);
@@ -167,20 +170,20 @@ public class InventoryManager : MonoBehaviour
 
     private void FoodItemInteraction(Character character, FoodObject item)
     {
-        character[NeedType.Hunger] -= Random.Range(item.hungerModifierMin, item.hungerModifierMax);
+        character[NeedType.Hunger] = Math.Max(character[NeedType.Hunger] - Random.Range(item.hungerModifierMin, item.hungerModifierMax), 0);
         if (item.isRaw)
         {
-            character[NeedType.Sickness] += Random.Range(0, 5);
+            character[NeedType.Sickness] = Math.Min(character[NeedType.Sickness] + Random.Range(0, 5), 100);
         }
     }
     
     private void UsableItemInteraction(Character character, UsableItemObject item)
     {
-        character[NeedType.Fatigue] -= item.fatigueModifier;
-        character[NeedType.Hunger] -= item.hungerModifier;
-        character[NeedType.Sickness] -= item.sicknessModifier;
-        character[NeedType.Depression] -= item.depressionModifier;
-        character[NeedType.Injury] -= item.injuryModifier;
+        character[NeedType.Fatigue] = Math.Max(character[NeedType.Fatigue] - item.fatigueModifier, 0);
+        character[NeedType.Hunger] = Math.Max(character[NeedType.Hunger] - item.hungerModifier, 0);
+        character[NeedType.Sickness] = Math.Max(character[NeedType.Sickness] - item.sicknessModifier, 0);
+        character[NeedType.Depression] = Math.Max(character[NeedType.Depression] - item.depressionModifier, 0);
+        character[NeedType.Injury] = Math.Max(character[NeedType.Injury] - item.injuryModifier, 0);
     }
 
     public void CloseItemInteractionMenu()

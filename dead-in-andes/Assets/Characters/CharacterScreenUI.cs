@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Characters;
 using TMPro;
 using UnityEngine;
@@ -60,7 +61,7 @@ public class CharacterScreenUI : MonoBehaviour
     
     void Start()
     {
-        charactersList = Object.FindObjectsOfType<Character>();
+        charactersList = Object.FindObjectsOfType<Character>().Where(character => character.alive).ToArray();
         ReloadScreens();
     }
 

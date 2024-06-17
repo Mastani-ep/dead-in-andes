@@ -1,13 +1,15 @@
+using System;
 using Characters;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 public class Character : MonoBehaviour
 {
     [FormerlySerializedAs("_name")] [SerializeField] public string characterName = "lol";
     [TextArea(15,20)]
     public string characterDescription;
-    [SerializeField] private bool alive = true;
+    [SerializeField] public bool alive = true;
     public SpriteRenderer characterImage;
     // [SerializeField] public Sprite characterSprite;
     
@@ -135,13 +137,23 @@ public class Character : MonoBehaviour
     {
         if (alive)
         {
-            hungerMeter += 15;
-            fatigueMeter += 25;
-            sicknessMeter += 10;
-
-            if (hungerMeter >= 100)
+            hungerMeter = Math.Min(hungerMeter + Random.Range(15, 25), 100);
+            fatigueMeter = Math.Min(fatigueMeter + Random.Range(5, 10), 100);
+            sicknessMeter = Math.Min((int)(sicknessMeter * 1.5), 100);
+            injuryMeter = Math.Min((int)(injuryMeter * 1.5), 100);
+            depressionMeter = Math.Min(depressionMeter + Random.Range(15, 25), 100);
+            
+            if (hungerMeter >= 100 || fatigueMeter >= 100 || sicknessMeter >= 100 || injuryMeter >= 100 || depressionMeter >= 100)
             {
                 alive = false;
+                var dragDrop = GetComponent<DragDropCharacter>();
+                var site = dragDrop.currentSite;
+                dragDrop.currentSite = null;
+                site.ChangeCurrentCharacter(null);
+                
+                gameObject.SetActive(false);
+
+                // Display some popup idk
             }
         }
     }
