@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f00bc83c7847cd45afcc4d1991af6ab, type: 3}
+  m_Name: Axe
+  m_EditorClassIdentifier: 
+  itemName: Axe
+  itemIcon: {fileID: -17912709, guid: 9f75086d4c43a6942b717ff64c5c537e, type: 3}
+  itemDescription: 'Axe
+
+
+    Trusty axe one of you took with them on
+
+    the plane,
+    can be used for chopping wood'
+  needType: 0
+  type: 0
+  generatedMin: 1
+  generatedMax: 1

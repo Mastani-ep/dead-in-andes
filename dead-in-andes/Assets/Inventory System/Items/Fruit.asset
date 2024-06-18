@@ -17,7 +17,7 @@ MonoBehaviour:
   itemDescription: "Morti\xF1o (Andean blueberry)\n\nSmall, round fruit that grows
     in the high-altitude regions of the Andes Mountains\nMorti\xF1o berries are known
     for their tart flavor, which is reminiscent of blueberries, \nbut with a slightly
-    more acidic tang\n\nDecreases hunger by 5 when used"
+    more acidic tang\n\nReduces hunger by 5"
   needType: 1
   type: 1
   generatedMin: 3

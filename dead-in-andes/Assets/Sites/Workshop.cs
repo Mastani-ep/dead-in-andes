@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Characters;
 using DefaultNamespace;
 using UnityEngine;
@@ -100,6 +101,7 @@ public class Workshop : Site
                     UnlockedRecipes[currentRecipe].isDone = true;
                     currentRecipe = -1;
                     CreateStationFromRecipe(recipe);
+                    // CheckEndGameCondition();
                 }
             }
             ApplySkillsAndNeedsChanges();
@@ -112,6 +114,7 @@ public class Workshop : Site
         {
             if (station.SiteType == recipe.createdSiteType)
             {
+                // DayStagesController.Instance.allSites.Add(station);
                 station.gameObject.SetActive(true);
                 Debug.Log("Created Site: " + station.SiteType);
             }

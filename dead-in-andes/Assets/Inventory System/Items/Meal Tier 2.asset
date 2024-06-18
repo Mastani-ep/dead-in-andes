@@ -17,7 +17,11 @@ MonoBehaviour:
   itemDescription: 'Meal
 
 
-    Decreases hunger by 10-20 when used'
+    Seems almost like a good meal, almost
+
+
+    Reduces
+    hunger by 10-20'
   needType: 1
   type: 1
   generatedMin: 0

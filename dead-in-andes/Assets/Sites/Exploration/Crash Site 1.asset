@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f595bbf6ba5cb44fa9d2262e75c4b82, type: 3}
   m_Name: Crash Site 1
   m_EditorClassIdentifier: 
-  explorationTargetName: Crash Bandicoot 1
-  defaultExplorationProgress: 33.3
+  explorationTargetName: Crash Site Surroundings
+  defaultExplorationProgress: 100
   Items:
   - Item: {fileID: 11400000, guid: d99c806bb2bd64c4ba1332c04becdb0c, type: 2}
     MinAmount: 2
     MaxAmount: 7
-  - Item: {fileID: 11400000, guid: 738a822da1d20c048b3182c73c270d10, type: 2}
+  - Item: {fileID: 11400000, guid: d145bcb1411f4d84a9739b55ae428f18, type: 2}
     MinAmount: 1
     MaxAmount: 2
   - Item: {fileID: 11400000, guid: 5716e3015faa58440835b776e2f9ccde, type: 2}

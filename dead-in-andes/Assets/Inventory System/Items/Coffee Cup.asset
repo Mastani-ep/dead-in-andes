@@ -17,7 +17,13 @@ MonoBehaviour:
   itemDescription: 'Coffee Cup
 
 
-    Decreases Fatigue by 10 when used'
+    Reminds you of better times and keeps
+
+    you
+    awake
+
+
+    Reduces fatigue by 10'
   needType: 2
   type: 2
   generatedMin: 0

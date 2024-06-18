@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c14358dba2d83c4e867f01abd79a088, type: 3}
+  m_Name: FishSite
+  m_EditorClassIdentifier: 
+  recipeName: Fishing rod
+  createdSiteType: 8
+  requiredItems:
+  - requiredItem: {fileID: 11400000, guid: d145bcb1411f4d84a9739b55ae428f18, type: 2}
+    requiredAmount: 10
+  - requiredItem: {fileID: 11400000, guid: d99c806bb2bd64c4ba1332c04becdb0c, type: 2}
+    requiredAmount: 10
+  _defaultBuildProgress: 50
+  _defaultResearchProgress: 50
+  recipeIcon: {fileID: 308955336, guid: 5880bbb3739517e4592f5d14ddf92861, type: 3}

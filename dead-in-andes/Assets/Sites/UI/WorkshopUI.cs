@@ -24,36 +24,6 @@ public class WorkshopUI : MonoBehaviour
     public Button recipeButton;
 
     public GameObject inventoryButton;
-    // private void Awake()
-    // {
-    //     Instance = this;
-    // }
-
-    // public void Add(ItemObject item)
-    // {
-    //     if (Items.ContainsKey(item))
-    //     {
-    //         // If it exists, increment its value
-    //         Items[item]++;
-    //     }
-    //     else
-    //     {
-    //         // If it doesn't exist, add it with value 1
-    //         Items[item] = 1;
-    //     }
-    // }
-    //
-    // public void Remove(ItemObject item, int count)
-    // {
-    //     if (Items[item] > count)
-    //     {
-    //         Items[item] -= count;
-    //     }
-    //     else
-    //     {
-    //         Items.Remove(item);
-    //     }
-    // }
 
     public void ListRecipes()
     {
@@ -111,18 +81,6 @@ public class WorkshopUI : MonoBehaviour
                 itemName.text = item.requiredItem.itemName;
                 itemCount.text = item.requiredAmount.ToString();
                 itemIcon.sprite = item.requiredItem.itemIcon;
-
-                // if (can craft)
-                // {
-                //     recipeButton.onClick.AddListener(() =>
-                //     {
-                //         choseRecipe(recipeProgress);
-                //     });    
-                // }
-                // else
-                // {
-                //     buton disabled so sad
-                // }
             }
             
             if (Workshop.CheckRecipeRequirements(Workshop.UnlockedRecipes.IndexOf(recipeProgress)))

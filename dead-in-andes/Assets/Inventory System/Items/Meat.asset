@@ -17,7 +17,11 @@ MonoBehaviour:
   itemDescription: 'Meat
 
 
-    Decreases hunger by 6-12 when used, can cause sickness'
+    Meat from local wildfile
+
+
+    Reduces hunger by 6-12,
+    can cause sickness'
   needType: 1
   type: 1
   generatedMin: 5

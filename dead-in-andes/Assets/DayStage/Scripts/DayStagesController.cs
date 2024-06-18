@@ -7,10 +7,11 @@ using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 public class DayStagesController : MonoBehaviour
 {
+    [SerializeField] private static DayStagesController instance;
     [SerializeField] private DayStage _dayStage = DayStage.Morning;
     [SerializeField] private int _dayCounter = 0;
     [SerializeField] private Character[] _characters_list;
-    [SerializeField] private Site[] allSites;
+    [SerializeField] public List<Site> allSites;
     [SerializeField] private ExplorationSiteManager explorationSiteManager;
 
     [Header("Day Stage UI")] 
@@ -32,8 +33,21 @@ public class DayStagesController : MonoBehaviour
     public string mountainNightColor = "#C1BDBD";
     public string skyNightColor = "#3F4054";
     
+    [Header("Character death popup")]
+    [SerializeField] private Transform deadCharacterContent;
+    [SerializeField] private GameObject characterPrefab;
+    [SerializeField] private Gradient needsSliderGradient;
+    [SerializeField] private GameObject characterDeathScreen;
+    
+    public static DayStagesController Instance
+    {
+        get => instance;
+        set => instance = value;
+    }
+    
     void ChangeDayStage()
     {
+        allSites = Object.FindObjectsOfType<Site>().ToList();
         switch (_dayStage)
         {
             case DayStage.Morning:
@@ -63,6 +77,7 @@ public class DayStagesController : MonoBehaviour
                 UpdateDayStageUI();
                 ChangeSceneLight();
                 NextDayChanges();
+                GameManager.Instance.CheckGameEndCondition();
                 break;
         }
     }
@@ -74,15 +89,63 @@ public class DayStagesController : MonoBehaviour
         {
             character.NextDayChanges();
         }
+        
+        var charactersThatDiedList = _characters_list.Where(character => character.alive == false).ToArray();
         _characters_list = _characters_list.Where(character => character.alive).ToArray();
         UpdateDayCounter();
+        if (charactersThatDiedList.Any())
+        {
+            characterDeathScreen.SetActive(true);
+            DisplayCharacterDeathPopup(charactersThatDiedList);
+            if (_characters_list.Length == 0)
+            {
+                GameManager.Instance.DisplayFailureScreen();
+            }
+        }
+    }
+
+    private void DisplayCharacterDeathPopup(Character[] charactersThatDiedList)
+    {
+        foreach (Transform character in deadCharacterContent)
+        {
+            Destroy(character.gameObject);
+        }
+
+        foreach (var character in charactersThatDiedList)
+        {
+            GameObject obj = Instantiate(characterPrefab, deadCharacterContent);
+            var characterName = obj.transform.Find("CharacterName").GetComponent<TextMeshProUGUI>();
+            var abilityDisplayed = obj.transform.Find("AbilityDisplayed").GetComponent<TextMeshProUGUI>();
+            var characterIcon = obj.transform.Find("CharacterIcon").GetComponent<Image>();
+            var abilitySlider = obj.transform.Find("AbilityValues/AbilitySlider").GetComponent<Slider>();
+            var abilityValue = obj.transform.Find("AbilityValues/AbilityValueText").GetComponent<TextMeshProUGUI>();
+            
+            characterName.text = character.characterName;
+            abilityDisplayed.text = character.causeOfDeath.ToString();
+            characterIcon.sprite = character.characterImage.sprite;
+            abilitySlider.value = character[character.causeOfDeath];
+            abilitySlider.fillRect.GetComponent<Image>().color = needsSliderGradient.Evaluate(character[character.causeOfDeath]/100f);
+            abilityValue.text = character[character.causeOfDeath].ToString();
+        }
+    }
+
+    public void CloseCharacterDeathPopup()
+    {
+        characterDeathScreen.SetActive(false);
     }
     
     // Start is called before the first frame update
     void Start()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+            return;
+        }
+
+        Instance = this;
         Debug.Log("Start");
-        allSites = Object.FindObjectsOfType<Site>();
+        allSites = Object.FindObjectsOfType<Site>().ToList();
         _characters_list = Object.FindObjectsOfType<Character>();
         UpdateDayCounter();
         UpdateDayStageUI();

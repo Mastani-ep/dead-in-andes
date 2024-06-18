@@ -17,7 +17,11 @@ MonoBehaviour:
   itemDescription: 'Barely Edible Food
 
 
-    Decreases hunger by 1-5 when used'
+    You wish it was already rotten so that
+    you would''t have to eat it
+
+
+    Reduces hunger by 1-5'
   needType: 1
   type: 1
   generatedMin: 0

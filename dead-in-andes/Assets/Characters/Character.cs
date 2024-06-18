@@ -11,7 +11,7 @@ public class Character : MonoBehaviour
     public string characterDescription;
     [SerializeField] public bool alive = true;
     public SpriteRenderer characterImage;
-    // [SerializeField] public Sprite characterSprite;
+    public NeedType causeOfDeath;
     
     [Header("Needs")]    
     [SerializeField] public int hungerMeter = 0;
@@ -146,14 +146,24 @@ public class Character : MonoBehaviour
             if (hungerMeter >= 100 || fatigueMeter >= 100 || sicknessMeter >= 100 || injuryMeter >= 100 || depressionMeter >= 100)
             {
                 alive = false;
+            
+                if (hungerMeter >= 100)
+                    causeOfDeath = NeedType.Hunger;
+                else if (fatigueMeter >= 100)
+                    causeOfDeath = NeedType.Fatigue;
+                else if (sicknessMeter >= 100)
+                    causeOfDeath = NeedType.Sickness;
+                else if (injuryMeter >= 100)
+                    causeOfDeath = NeedType.Injury;
+                else if (depressionMeter >= 100)
+                    causeOfDeath = NeedType.Depression;
+                
                 var dragDrop = GetComponent<DragDropCharacter>();
                 var site = dragDrop.currentSite;
                 dragDrop.currentSite = null;
                 site.ChangeCurrentCharacter(null);
                 
                 gameObject.SetActive(false);
-
-                // Display some popup idk
             }
         }
     }

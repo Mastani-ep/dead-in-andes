@@ -108,15 +108,15 @@ public class CharacterScreenUI : MonoBehaviour
         var character = charactersList[currentCharacter];
 
         hungerSlider.value = character[NeedType.Hunger];
-        hungerSlider.fillRect.GetComponent<Image>().color = needsSliderGradient.Evaluate(character.hungerMeter/100f);
+        hungerSlider.fillRect.GetComponent<Image>().color = needsSliderGradient.Evaluate(character[NeedType.Hunger]/100f);
         fatigueSlider.value = character[NeedType.Fatigue];
-        fatigueSlider.fillRect.GetComponent<Image>().color = needsSliderGradient.Evaluate(character.fatigueMeter/100f);
+        fatigueSlider.fillRect.GetComponent<Image>().color = needsSliderGradient.Evaluate(character[NeedType.Fatigue]/100f);
         sicknessSlider.value = character[NeedType.Sickness];
-        sicknessSlider.fillRect.GetComponent<Image>().color = needsSliderGradient.Evaluate(character.sicknessMeter/100f);
+        sicknessSlider.fillRect.GetComponent<Image>().color = needsSliderGradient.Evaluate(character[NeedType.Sickness]/100f);
         depressionSlider.value = character[NeedType.Depression];
-        depressionSlider.fillRect.GetComponent<Image>().color = needsSliderGradient.Evaluate(character.depressionMeter/100f);
+        depressionSlider.fillRect.GetComponent<Image>().color = needsSliderGradient.Evaluate(character[NeedType.Depression]/100f);
         injurySlider.value = character[NeedType.Injury];
-        injurySlider.fillRect.GetComponent<Image>().color = needsSliderGradient.Evaluate(character.injuryMeter/100f);
+        injurySlider.fillRect.GetComponent<Image>().color = needsSliderGradient.Evaluate(character[NeedType.Injury]/100f);
 
         hungerPercentageValue.text = character[NeedType.Hunger] + " %";
         fatiguePercentageValue.text = character[NeedType.Fatigue] + " %";

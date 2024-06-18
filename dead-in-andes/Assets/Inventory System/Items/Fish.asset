@@ -17,7 +17,13 @@ MonoBehaviour:
   itemDescription: 'Fish
 
 
-    Decreases hunger by 4-8 when used, can cause sickness'
+    Local fish unfortunate enough to be caught by you
+
+
+    Reduces
+    hunger by 4-8, can cause sickness
+
+'
   needType: 1
   type: 1
   generatedMin: 3

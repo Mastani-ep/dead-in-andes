@@ -17,7 +17,7 @@ MonoBehaviour:
   itemDescription: "Sangre de Drago\n\nThe sap, known as Dragon\u2019s Blood, is
     widely used for its wound-healing properties\nIt is applied directly to wounds
     to stop bleeding, promote healing, and reduce inflammation\n\nReduces injury
-    up to 10"
+    by 10"
   needType: 4
   type: 2
   generatedMin: 0

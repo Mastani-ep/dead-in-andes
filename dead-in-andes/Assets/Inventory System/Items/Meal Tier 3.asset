@@ -17,7 +17,11 @@ MonoBehaviour:
   itemDescription: 'Glorious Meal
 
 
-    Decreases hunger by 20-30 when used'
+    Finally, something befitting someone as glorious
+    as you
+
+
+    Reduces hunger by 20-30'
   needType: 1
   type: 1
   generatedMin: 0

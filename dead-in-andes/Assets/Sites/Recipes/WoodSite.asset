@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8c14358dba2d83c4e867f01abd79a088, type: 3}
-  m_Name: TestRecipe 1
+  m_Name: WoodSite
   m_EditorClassIdentifier: 
-  recipeName: Test
-  createdSiteType: 1
+  recipeName: Wood Site
+  createdSiteType: 5
   requiredItems:
-  - requiredItem: {fileID: 11400000, guid: d8875255a8764c946b74dcc425da690d, type: 2}
-    requiredAmount: 2
-  - requiredItem: {fileID: 11400000, guid: 5716e3015faa58440835b776e2f9ccde, type: 2}
+  - requiredItem: {fileID: 11400000, guid: af13983e84646514e8e7b52e304edbf2, type: 2}
     requiredAmount: 1
-  _defaultProgress: 30
-  recipeIcon: {fileID: 21300000, guid: 4e99c61be1140e741a83ecde8c16fccb, type: 3}
+  - requiredItem: {fileID: 11400000, guid: d99c806bb2bd64c4ba1332c04becdb0c, type: 2}
+    requiredAmount: 5
+  _defaultBuildProgress: 50
+  _defaultResearchProgress: 50
+  recipeIcon: {fileID: -17912709, guid: 9f75086d4c43a6942b717ff64c5c537e, type: 3}

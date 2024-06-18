@@ -16,6 +16,6 @@ MonoBehaviour:
   defaultExplorationProgress: 33.3
   Items:
   - Item: {fileID: 11400000, guid: d99c806bb2bd64c4ba1332c04becdb0c, type: 2}
-    MinAmount: 3
-    MaxAmount: 8
-  usefulSkillType: 0
+    MinAmount: 2
+    MaxAmount: 6
+  usefulSkillType: 9
