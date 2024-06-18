@@ -24,8 +24,8 @@ MonoBehaviour:
 
 
     Reduces depression by 10'
-  needType: 0
-  type: 0
+  needType: 5
+  type: 2
   generatedMin: 0
   generatedMax: 0
   hungerModifier: 0
