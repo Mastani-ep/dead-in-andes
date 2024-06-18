@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Lost Axe Site
   m_EditorClassIdentifier: 
   explorationTargetName: Lost Axe
-  defaultExplorationProgress: 50
+  defaultExplorationProgress: 35
   Items:
   - Item: {fileID: 11400000, guid: af13983e84646514e8e7b52e304edbf2, type: 2}
     MinAmount: 1

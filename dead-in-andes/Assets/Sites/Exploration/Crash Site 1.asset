@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Crash Site 1
   m_EditorClassIdentifier: 
   explorationTargetName: Crash Site Surroundings
-  defaultExplorationProgress: 100
+  defaultExplorationProgress: 33.3
   Items:
   - Item: {fileID: 11400000, guid: d99c806bb2bd64c4ba1332c04becdb0c, type: 2}
-    MinAmount: 2
-    MaxAmount: 7
+    MinAmount: 22
+    MaxAmount: 22
   - Item: {fileID: 11400000, guid: d145bcb1411f4d84a9739b55ae428f18, type: 2}
     MinAmount: 1
     MaxAmount: 2

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Hanging Man Site
   m_EditorClassIdentifier: 
   explorationTargetName: Hanging Man
-  defaultExplorationProgress: 50
+  defaultExplorationProgress: 20
   Items:
   - Item: {fileID: 11400000, guid: d145bcb1411f4d84a9739b55ae428f18, type: 2}
     MinAmount: 1

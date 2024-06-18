@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Lost Suitcase Site
   m_EditorClassIdentifier: 
   explorationTargetName: Lost Suitcase
-  defaultExplorationProgress: 50
+  defaultExplorationProgress: 25
   Items:
   - Item: {fileID: 11400000, guid: 96e01f85302a5b74e99c578917b0cf44, type: 2}
     MinAmount: 1

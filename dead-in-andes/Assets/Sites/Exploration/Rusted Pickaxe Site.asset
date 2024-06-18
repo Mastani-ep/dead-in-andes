@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Rusted Pickaxe Site
   m_EditorClassIdentifier: 
   explorationTargetName: Rusted Pickaxe
-  defaultExplorationProgress: 50
+  defaultExplorationProgress: 35
   Items:
   - Item: {fileID: 11400000, guid: f0368c4d314fc124ab0b399b3a492ec0, type: 2}
     MinAmount: 1

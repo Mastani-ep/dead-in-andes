@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Hunter'sTrap Site
   m_EditorClassIdentifier: 
   explorationTargetName: Hunter's Trap
-  defaultExplorationProgress: 33.3
+  defaultExplorationProgress: 25
   Items:
   - Item: {fileID: 11400000, guid: 812b8e763a357e24db48b39419c10183, type: 2}
     MinAmount: 1

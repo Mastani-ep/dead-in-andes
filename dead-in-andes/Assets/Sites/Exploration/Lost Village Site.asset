@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Lost Village Site
   m_EditorClassIdentifier: 
   explorationTargetName: Lost Village
-  defaultExplorationProgress: 25
+  defaultExplorationProgress: 10
   Items:
   - Item: {fileID: 11400000, guid: e960d8a64f76f8b4b92a5178f7af2ba9, type: 2}
     MinAmount: 1

@@ -63,7 +63,14 @@ public class ExplorationFinishedUI : MonoBehaviour
             var itemIcon = obj.transform.Find("ItemIcon").GetComponent<Image>();
 
             itemName.text = item.Item.itemName;
-            itemCount.text = item.MinAmount.ToString() + "-" + item.MaxAmount.ToString();
+            if (item.MinAmount == item.MaxAmount)
+            {
+                itemCount.text = item.MinAmount.ToString();
+            }
+            else
+            {
+                itemCount.text = item.MinAmount + "-" + item.MaxAmount;
+            }
             itemIcon.sprite = item.Item.itemIcon;
         }
     }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Abandoned Camp
   m_EditorClassIdentifier: 
   explorationTargetName: Abandoned Camp
-  defaultExplorationProgress: 33.3
+  defaultExplorationProgress: 20
   Items:
   - Item: {fileID: 11400000, guid: 96e01f85302a5b74e99c578917b0cf44, type: 2}
     MinAmount: 1

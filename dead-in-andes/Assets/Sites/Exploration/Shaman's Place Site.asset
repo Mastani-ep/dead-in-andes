@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Shaman's Place Site
   m_EditorClassIdentifier: 
   explorationTargetName: Shaman's Place
-  defaultExplorationProgress: 33.3
+  defaultExplorationProgress: 25
   Items:
   - Item: {fileID: 11400000, guid: e960d8a64f76f8b4b92a5178f7af2ba9, type: 2}
     MinAmount: 1

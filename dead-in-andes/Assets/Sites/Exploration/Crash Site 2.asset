@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Crash Site 2
   m_EditorClassIdentifier: 
   explorationTargetName: Plane interior
-  defaultExplorationProgress: 50
+  defaultExplorationProgress: 33.3
   Items:
   - Item: {fileID: 11400000, guid: 738a822da1d20c048b3182c73c270d10, type: 2}
     MinAmount: 1
