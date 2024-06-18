@@ -123,16 +123,19 @@ public class ExplorationFinishedUI : MonoBehaviour
         foreach (var item in explorationTarget.Items)
         {
             int itemsAdded = Random.Range(item.MinAmount + (abilityValue * (item.MaxAmount - item.MinAmount)) / 100, item.MaxAmount);
-            InventoryManager.Instance.Add(item.Item, itemsAdded);
+            if (itemsAdded > 0)
+            {
+                InventoryManager.Instance.Add(item.Item, itemsAdded);
             
-            GameObject obj = Instantiate(explorationItem, itemPopupContent);
-            var itemName = obj.transform.Find("ItemName").GetComponent<TextMeshProUGUI>();
-            var itemCount = obj.transform.Find("ItemCount").GetComponent<TextMeshProUGUI>();
-            var itemIcon = obj.transform.Find("ItemIcon").GetComponent<Image>();
+                GameObject obj = Instantiate(explorationItem, itemPopupContent);
+                var itemName = obj.transform.Find("ItemName").GetComponent<TextMeshProUGUI>();
+                var itemCount = obj.transform.Find("ItemCount").GetComponent<TextMeshProUGUI>();
+                var itemIcon = obj.transform.Find("ItemIcon").GetComponent<Image>();
 
-            itemName.text = item.Item.itemName;
-            itemCount.text = itemsAdded.ToString();
-            itemIcon.sprite = item.Item.itemIcon;
+                itemName.text = item.Item.itemName;
+                itemCount.text = itemsAdded.ToString();
+                itemIcon.sprite = item.Item.itemIcon;
+            }
         }
     }
 
