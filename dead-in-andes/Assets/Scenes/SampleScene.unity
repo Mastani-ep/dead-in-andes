@@ -9565,6 +9565,7 @@ MonoBehaviour:
   characterPrefab: {fileID: 869553713982716151, guid: 4ac1c6ae9bfd22548a1dc9a6f97b72b8, type: 3}
   characterContentWin: {fileID: 972553048}
   characterContentLoss: {fileID: 553820939}
+  fullCharactersList: []
   lockingInteractionCount: 0
 --- !u!4 &662734638
 Transform:
@@ -23131,12 +23132,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterName: Sabrina
-  characterDescription: Sabrina was always a little bit different, if by little you
-    mean a lot obviously. She never played with other girls, instead prefering to
-    venture into the forests alone, despite her parents forbiding her from it. This
-    kind of upbringing made her a social outcast, but one very skilled in exactly
-    the kind of things this dire situation calls for, as long as other survivors
-    can trust her.
+  characterDescription: Sabrina was always just a little bit different, if by little
+    you mean a lot obviously. She never played with other girls, instead prefering
+    to venture into the woods alone, despite her parents forbiding her from it. Other
+    kids made fun of her, which further strenghtened her isolation, thus making her
+    a social outcast, not by choice but by a circumstance. Her life made her very
+    skilled in exactly the kind of things this dire situation calls for, as long
+    as other survivors can trust her and her weird nature.
   alive: 1
   characterImage: {fileID: 0}
   causeOfDeath: 0

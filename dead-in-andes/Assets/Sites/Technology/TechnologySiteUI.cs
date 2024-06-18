@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class TechnologySiteUI : MonoBehaviour
@@ -31,6 +32,7 @@ public class TechnologySiteUI : MonoBehaviour
 
     public void OpenPopUpPanel(Recipe recipe)
     {
+        EventSystem.current.SetSelectedGameObject(null);
         technologyNamePopUp.text = recipe.recipeName;
         technologySprite.sprite = recipe.recipeIcon;
         GameManager.Instance.IncreaseLockingInteractionCount();
