@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,7 @@ using UnityEngine.Serialization;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private static GameManager instance;
+    [SerializeField] private GameObject PauseGameMenu;
 
     public static GameManager Instance
     {
@@ -40,5 +42,21 @@ public class GameManager : MonoBehaviour
     public void DecreaseLockingInteractionCount()
     {
         lockingInteractionCount--;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (!PauseGameMenu.activeSelf)
+            {
+                IncreaseLockingInteractionCount();
+                PauseGameMenu.SetActive(true);
+            }else
+            {
+                DecreaseLockingInteractionCount();
+                PauseGameMenu.SetActive(false);
+            }
+        }
     }
 }
