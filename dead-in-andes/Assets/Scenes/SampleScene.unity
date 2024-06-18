@@ -3738,8 +3738,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 1.289}
-  m_SizeDelta: {x: 2.205, y: 0.6507}
+  m_AnchoredPosition: {x: 0.00000012665987, y: 1.317}
+  m_SizeDelta: {x: 4.5002, y: 0.6947}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &288888712
 MonoBehaviour:
@@ -3824,7 +3824,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0.1401133, z: 0, w: 0}
+  m_margin: {x: 0, y: 0.1401133, z: 0.0028381348, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -15760,7 +15760,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.08503916, g: 0.8584906, b: 0.11420063, a: 0}
+  m_Color: {r: 0.30437878, g: 0.6792453, b: 0.3176989, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -21156,7 +21156,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.56, y: -16}
+  m_AnchoredPosition: {x: 2.56, y: -4.6}
   m_SizeDelta: {x: 798.76, y: 147.26}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1379597073
