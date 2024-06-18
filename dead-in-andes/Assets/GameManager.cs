@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject characterPrefab;
     [SerializeField] private Transform characterContentWin;
     [SerializeField] private Transform characterContentLoss;
+    [SerializeField] private List<Character> fullCharactersList;
     
     public static GameManager Instance
     {
@@ -36,6 +37,7 @@ public class GameManager : MonoBehaviour
         }
 
         Instance = this;
+        fullCharactersList = Object.FindObjectsOfType<Character>().ToList();
     }
 
     public int LockedParallaxScrolling
@@ -85,8 +87,7 @@ public class GameManager : MonoBehaviour
     {
         EndGameNotificationLoss.SetActive(true);
         IncreaseLockingInteractionCount();
-        List<Character> charactersList = Object.FindObjectsOfType<Character>().ToList();
-        ListCharacters(charactersList, characterContentLoss);
+        ListCharacters(fullCharactersList, characterContentLoss);
     }
     
     private void ListCharacters(List<Character> charactersList, Transform characterContent)
