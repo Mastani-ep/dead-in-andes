@@ -1,5 +1,6 @@
 using System;
 using Characters;
+using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class SleepingSite : Site
@@ -8,7 +9,8 @@ public class SleepingSite : Site
     {
         if (currentCharacter)
         {
-            currentCharacter[NeedType.Fatigue] = Math.Max((int)(Random.Range(10, 20) * (1 + currentCharacter[SkillType.Constitution] / 100f)), 0); 
+            // Debug.Log("Fatigue decrease" + );
+            currentCharacter[NeedType.Fatigue] = Math.Max((int)(currentCharacter[NeedType.Fatigue] - Random.Range(20, 35) * (1 + currentCharacter[SkillType.Constitution] / 100f)), 0); 
             ApplySkillsAndNeedsChanges();
         }
     }

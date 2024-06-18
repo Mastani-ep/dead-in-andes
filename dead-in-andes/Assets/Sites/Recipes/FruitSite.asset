@@ -15,10 +15,10 @@ MonoBehaviour:
   recipeName: Fruit basket
   createdSiteType: 9
   requiredItems:
+  - requiredItem: {fileID: 11400000, guid: aceab184cca396542854020acae33907, type: 2}
+    requiredAmount: 1
   - requiredItem: {fileID: 11400000, guid: d145bcb1411f4d84a9739b55ae428f18, type: 2}
-    requiredAmount: 10
-  - requiredItem: {fileID: 11400000, guid: d99c806bb2bd64c4ba1332c04becdb0c, type: 2}
     requiredAmount: 3
   _defaultBuildProgress: 50
   _defaultResearchProgress: 50
-  recipeIcon: {fileID: 1569704797, guid: 2bf1b9a7e3887c54d922f9fdc155ff68, type: 3}
+  recipeIcon: {fileID: 2130545570, guid: 2bf1b9a7e3887c54d922f9fdc155ff68, type: 3}

@@ -28,7 +28,7 @@ MonoBehaviour:
   needType: 3
   type: 2
   generatedMin: 0
-  generatedMax: 2
+  generatedMax: 1
   hungerModifier: 0
   fatigueModifier: 0
   sicknessModifier: 10

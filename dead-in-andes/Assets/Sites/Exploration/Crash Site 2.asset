@@ -16,15 +16,15 @@ MonoBehaviour:
   defaultExplorationProgress: 33.3
   Items:
   - Item: {fileID: 11400000, guid: 738a822da1d20c048b3182c73c270d10, type: 2}
-    MinAmount: 1
-    MaxAmount: 3
+    MinAmount: 6
+    MaxAmount: 8
   - Item: {fileID: 11400000, guid: d06acea11efef3c49a523b2127838356, type: 2}
-    MinAmount: 2
-    MaxAmount: 3
+    MinAmount: 5
+    MaxAmount: 8
   - Item: {fileID: 11400000, guid: 9eef948e787c977468b437ac5c9e656a, type: 2}
-    MinAmount: 1
-    MaxAmount: 2
+    MinAmount: 7
+    MaxAmount: 9
   - Item: {fileID: 11400000, guid: c150b10b73fe00a4e9e60f1571fdb1f0, type: 2}
-    MinAmount: 1
-    MaxAmount: 2
+    MinAmount: 6
+    MaxAmount: 8
   usefulSkillType: 0

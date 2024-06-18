@@ -20,5 +20,5 @@ MonoBehaviour:
     Used for construction purposes'
   needType: 0
   type: 0
-  generatedMin: 1
-  generatedMax: 2
+  generatedMin: 2
+  generatedMax: 4

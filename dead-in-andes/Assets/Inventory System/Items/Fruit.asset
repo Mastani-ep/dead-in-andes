@@ -20,8 +20,8 @@ MonoBehaviour:
     more acidic tang\n\nReduces hunger by 5"
   needType: 1
   type: 1
-  generatedMin: 3
-  generatedMax: 7
-  hungerModifierMin: 5
-  hungerModifierMax: 5
+  generatedMin: 2
+  generatedMax: 5
+  hungerModifierMin: 10
+  hungerModifierMax: 10
   isRaw: 0

@@ -7803,7 +7803,7 @@ MonoBehaviour:
   hunting: 10
   fishing: 40
   cooking: 0
-  communication: 15
+  communication: 25
   knowledge: 50
   craftsmanship: 20
   exploration: 30
@@ -8833,11 +8833,11 @@ MonoBehaviour:
   sicknessMeter: 0
   injuryMeter: 0
   depressionMeter: 0
-  gathering: 20
+  gathering: 30
   hunting: 0
   fishing: 5
   cooking: 50
-  communication: 30
+  communication: 40
   knowledge: 5
   craftsmanship: 5
   exploration: 10
@@ -9595,7 +9595,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charactersOnSite: []
-  depressionReductionPerPerson: 0.2
+  depressionReductionPerPerson: 1
 --- !u!1 &673930114
 GameObject:
   m_ObjectHideFlags: 0
@@ -16801,7 +16801,7 @@ MonoBehaviour:
   hunting: 5
   fishing: 15
   cooking: 5
-  communication: 10
+  communication: 20
   knowledge: 15
   craftsmanship: 40
   exploration: 10
@@ -23151,7 +23151,7 @@ MonoBehaviour:
   hunting: 30
   fishing: 15
   cooking: 0
-  communication: 0
+  communication: 10
   knowledge: 20
   craftsmanship: 0
   exploration: 50
@@ -29964,16 +29964,16 @@ MonoBehaviour:
   - recipe: {fileID: 11400000, guid: 8363d6225c77a0e419eb78c5b01992e3, type: 2}
     progress: 0
     isDone: 0
-  - recipe: {fileID: 11400000, guid: d2a0ba1118e405745aef760f4e7f4eab, type: 2}
-    progress: 0
-    isDone: 0
   - recipe: {fileID: 11400000, guid: e3d473c4c4f650340b0cd8b9d8b4233e, type: 2}
     progress: 0
     isDone: 0
-  - recipe: {fileID: 11400000, guid: dee7583cb1a24f0409c5a1c106d52118, type: 2}
+  - recipe: {fileID: 11400000, guid: d2a0ba1118e405745aef760f4e7f4eab, type: 2}
     progress: 0
     isDone: 0
   - recipe: {fileID: 11400000, guid: bc35e8667611b1e44bec3089282c00ed, type: 2}
+    progress: 0
+    isDone: 0
+  - recipe: {fileID: 11400000, guid: dee7583cb1a24f0409c5a1c106d52118, type: 2}
     progress: 0
     isDone: 0
   - recipe: {fileID: 11400000, guid: adc23c23b93070d41b446211652211a8, type: 2}
@@ -34665,13 +34665,20 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ef4360edaf3609b42ae2ef6afe1c620c, type: 2}
   - {fileID: 11400000, guid: 201ac501aae5d4e42b3d3d69c16247ea, type: 2}
   - {fileID: 11400000, guid: f3854fe59e8657c438c6fcd9f9cdbef1, type: 2}
+  - {fileID: 11400000, guid: af3017d07c7736246982e0fd133095cb, type: 2}
+  - {fileID: 11400000, guid: 77067b07dd8122446bb31ed95c92dd8c, type: 2}
   - {fileID: 11400000, guid: 9e98f2d23653bd844993084571ac8a9d, type: 2}
+  - {fileID: 11400000, guid: e5788582b0e6c2149b4d0789da21d8c5, type: 2}
+  - {fileID: 11400000, guid: 944b749e33883f94b9d7b79043d52526, type: 2}
   - {fileID: 11400000, guid: b9e1fb666556c364c9275d52685a0939, type: 2}
   possibleSitesType:
+  - {fileID: 11400000, guid: 9221d27d99c23c443add172c7d89d3b6, type: 2}
+  - {fileID: 11400000, guid: 9221d27d99c23c443add172c7d89d3b6, type: 2}
   - {fileID: 11400000, guid: 9221d27d99c23c443add172c7d89d3b6, type: 2}
   - {fileID: 11400000, guid: f20a26267a08b824f875a2cae8ba9021, type: 2}
   - {fileID: 11400000, guid: dd21bd09f652f274bb3714657cee7101, type: 2}
   - {fileID: 11400000, guid: 2d417a4e920a61e4fa3ab104391a6d8d, type: 2}
+  - {fileID: 11400000, guid: 77dcfb79271b64f459e610b92bf4eea1, type: 2}
   - {fileID: 11400000, guid: 77dcfb79271b64f459e610b92bf4eea1, type: 2}
   - {fileID: 11400000, guid: e0804fc5447da464291b5c7747280627, type: 2}
   - {fileID: 11400000, guid: da8d20100b12d934699855faf67857b7, type: 2}
@@ -34683,7 +34690,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e5788582b0e6c2149b4d0789da21d8c5, type: 2}
   - {fileID: 11400000, guid: 77067b07dd8122446bb31ed95c92dd8c, type: 2}
   - {fileID: 11400000, guid: 77067b07dd8122446bb31ed95c92dd8c, type: 2}
-  - {fileID: 11400000, guid: 9221d27d99c23c443add172c7d89d3b6, type: 2}
+  - {fileID: 11400000, guid: 944b749e33883f94b9d7b79043d52526, type: 2}
+  - {fileID: 11400000, guid: 944b749e33883f94b9d7b79043d52526, type: 2}
+  - {fileID: 11400000, guid: 86e11f2193d9e484d9336671e0c7afa6, type: 2}
+  - {fileID: 11400000, guid: 86e11f2193d9e484d9336671e0c7afa6, type: 2}
   explorationTarget: {fileID: 0}
   exploredSitesCount: 0
   explorationItem: {fileID: 869553713982716151, guid: f4d41fee0dc1b1a4db5a0c5e485f58ef, type: 3}

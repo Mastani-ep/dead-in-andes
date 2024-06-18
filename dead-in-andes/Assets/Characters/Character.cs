@@ -137,12 +137,6 @@ public class Character : MonoBehaviour
     {
         if (alive)
         {
-            hungerMeter = Math.Min(hungerMeter + Random.Range(15, 25), 100);
-            fatigueMeter = Math.Min(fatigueMeter + Random.Range(5, 10), 100);
-            sicknessMeter = Math.Min((int)(sicknessMeter * 1.5), 100);
-            injuryMeter = Math.Min((int)(injuryMeter * 1.5), 100);
-            depressionMeter = Math.Min(depressionMeter + Random.Range(15, 25), 100);
-            
             if (hungerMeter >= 100 || fatigueMeter >= 100 || sicknessMeter >= 100 || injuryMeter >= 100 || depressionMeter >= 100)
             {
                 alive = false;
@@ -166,5 +160,10 @@ public class Character : MonoBehaviour
                 gameObject.SetActive(false);
             }
         }
+        hungerMeter = Math.Min(hungerMeter + Random.Range(15, 25), 100);
+        fatigueMeter = Math.Min(fatigueMeter - Random.Range(10, 15), 100);
+        sicknessMeter = Math.Min((int)(sicknessMeter * 1.5), 100);
+        injuryMeter = Math.Min((int)(injuryMeter * 1.5), 100);
+        depressionMeter = Math.Min(depressionMeter + Random.Range(15, 25), 100);
     }
 }

@@ -16,9 +16,9 @@ MonoBehaviour:
   createdSiteType: 8
   requiredItems:
   - requiredItem: {fileID: 11400000, guid: d145bcb1411f4d84a9739b55ae428f18, type: 2}
-    requiredAmount: 10
+    requiredAmount: 5
   - requiredItem: {fileID: 11400000, guid: d99c806bb2bd64c4ba1332c04becdb0c, type: 2}
-    requiredAmount: 10
+    requiredAmount: 5
   _defaultBuildProgress: 50
   _defaultResearchProgress: 50
   recipeIcon: {fileID: 308955336, guid: 5880bbb3739517e4592f5d14ddf92861, type: 3}

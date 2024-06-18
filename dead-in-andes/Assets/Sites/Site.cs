@@ -93,7 +93,14 @@ public class Site : MonoBehaviour
     {
         foreach (var needType in needTypesImpacted)
         {
-            currentCharacter[needType] = Mathf.Clamp(currentCharacter[needType] + Random.Range(5, 15), 0, 100);
+            if (needType == NeedType.Injury)
+            {
+                currentCharacter[needType] = Mathf.Clamp(currentCharacter[needType] + Random.Range(0, 10), 0, 100);
+            }
+            else
+            {
+                currentCharacter[needType] = Mathf.Clamp(currentCharacter[needType] + Random.Range(5, 15), 0, 100);
+            }
         }
     }
     

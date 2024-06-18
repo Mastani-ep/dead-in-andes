@@ -44,6 +44,7 @@ public class ExplorationManager : MonoBehaviour
         float progress = (explorationTarget.defaultExplorationProgress) *
                          (1f + 1f * (currentCharacter[SkillType.Exploration] / 100f));
         currentProgress += progress;
+        explorationProgressSlider.value = currentProgress;
         if (currentProgress >= 100)
         {
             additionalProgress = currentProgress - 100;
