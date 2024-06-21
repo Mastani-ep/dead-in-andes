@@ -1,20 +1,22 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+# Dead In Andes
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+Assist four survivors of a devastating plane crash in the Andean mountains,
+endure the harsh environment and seek aid before the time runs out.
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+[Game instruction](Dead_In_Andes_Instruction.pdf)
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+## How to run
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+Unzip Dead In Andes Build and run dead-in-andes.exe that can be found in build directory.
+
+## Screenshots
+### Title Screen
+![Title Screen.png](screenshots%2FTitle%20Screen.png)
+### Tough Early Night
+![Tough Early Night.png](screenshots%2FTough%20Early%20Night.png)
+### Shelter and Fire
+![Shelter and Fire.png](screenshots%2FShelter%20and%20Fire.png)
+### Afternoon Foraging
+![Afternoon Foraging.png](screenshots%2FAfternoon%20Foraging.png)
+### Death May Be Inevitable
+![Death May Be Inevitable.png](screenshots%2FDeath%20May%20Be%20Inevitable.png)
